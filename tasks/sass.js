@@ -11,7 +11,7 @@ module.exports = function( grunt ) {
 	'use strict';
 
 	grunt.registerMultiTask( 'sass', 'Compile SASS and SCSS', function() {
-		var sass = require('sass');
+		var sass = require('node-sass');
 		var done = this.async();
 		var dest = this.file.dest;
 		var files = grunt.file.expand( this.file.src );

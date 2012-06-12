@@ -24,7 +24,7 @@
 	},
 	"dependencies": {
 		"grunt": "~0.3.9",
-		"sass": "git://github.com/andrew/node-sass.git#0a5a707383"
+		"node-sass": "~0.2.0"
 	},
 	"engines": {
 		"node": ">=0.6.0"
