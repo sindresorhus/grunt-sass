@@ -1,0 +1,35 @@
+{
+	"name": "grunt-sass",
+	"version": "0.1.0",
+	"description": "Grunt task to compile SASS and SCSS",
+	"keywords": [
+		"gruntplugin",
+		"grunt",
+		"css",
+		"sass",
+		"scss"
+	],
+	"homepage": "https://github.com/sindresorhus/grunt-sass",
+	"bugs": "https://github.com/sindresorhus/grunt-sass/issues",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "http://sindresorhus.com"
+	},
+	"main": "grunt.js",
+	"bin": "bin/grunt-sass",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/sindresorhus/grunt-sass.git"
+	},
+	"dependencies": {
+		"grunt": "~0.3.9",
+		"sass": "git://github.com/andrew/node-sass.git#0a5a707383"
+	},
+	"engines": {
+		"node": ">=0.6.0"
+	},
+	"licenses": {
+		"type": "MIT"
+	}
+}
