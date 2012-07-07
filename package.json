@@ -1,7 +1,7 @@
 {
 	"name": "grunt-sass",
 	"version": "0.2.0",
-	"description": "Grunt task to compile SASS",
+	"description": "Grunt tasks to compile SASS",
 	"keywords": [
 		"gruntplugin",
 		"grunt",
