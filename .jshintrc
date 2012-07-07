@@ -1,0 +1,21 @@
+{
+	"predef": [
+		"$"
+	],
+	"node" : true,
+	"browser" : true,
+	"es5" : true,
+	"esnext": true,
+	"bitwise": true,
+	"curly": true,
+	"eqeqeq": true,
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"regexp": true,
+	"undef": true,
+	"strict": true,
+	"trailing": true,
+	"smarttabs": true
+}
