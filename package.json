@@ -27,7 +27,7 @@
 		"node-sass": "~0.2.1"
 	},
 	"engines": {
-		"node": ">=0.8.1"
+		"node": ">=0.8.0"
 	},
 	"licenses": {
 		"type": "MIT"
