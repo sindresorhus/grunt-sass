@@ -7,38 +7,38 @@ module.exports = function( grunt ) {
 	grunt.registerMultiTask( 'rubysass', 'Compile SASS .scss/.sass using Ruby SASS', function() {
 		var cb = this.async();
 		var opts = this.options();
+		var args = ['--stdin'];
+
+		// Options -> CLI parameters
+		Object.keys( opts ).forEach(function( el ) {
+			var val = opts[ el ];
+
+			el = el.replace( /[A-Z]/g, function( match ) {
+				return '-' + match.toLowerCase();
+			});
+
+			if ( val === true ) {
+				args.push( '--' + el );
+			}
+
+			if ( _.isString( val ) ) {
+				args.push( '--' + el, val );
+			}
+		});
 
 		this.files.forEach(function( el ) {
-			var sass;
+			var elArgs = [ el.dest ];
 			var src = el.src;
-			var args = [ el.dest, '--stdin' ];
 			var files = grunt.file.expandFiles( src );
 			var max = grunt.helper( 'concat', files );
 
-			// Options -> CLI parameters
-			Object.keys( opts ).forEach(function( el ) {
-				var val = opts[ el ];
-
-				el = el.replace( /[A-Z]/g, function( match ) {
-					return '-' + match.toLowerCase();
-				});
-
-				if ( val === true ) {
-					args.push( '--' + el );
-				}
-
-				if ( _.isString( val ) ) {
-					args.push( '--' + el, val );
-				}
-			});
-
 			if ( path.extname( src ) === '.scss' ) {
-				args.push('--scss');
+				elArgs.push('--scss');
 			}
 
-			sass = grunt.util.spawn({
+			var sass = grunt.util.spawn({
 				cmd: 'sass',
-				args: args
+				args: elArgs.concat( args )
 			}, function( err ) {
 				if ( err ) {
 					grunt.fail.fatal( err );
