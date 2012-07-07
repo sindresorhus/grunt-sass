@@ -1,6 +1,10 @@
+.npmignore
 .editorconfig
+.jshintrc
+.jshintignore
 *.sublime-project
 *.sublime-workspace
 test
-grunt.js
 readme.md
+Gruntfile.js
+.sass-cache
