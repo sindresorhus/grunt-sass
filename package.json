@@ -1,7 +1,7 @@
 {
 	"name": "grunt-sass",
-	"version": "0.1.0",
-	"description": "Grunt task to compile SASS and SCSS",
+	"version": "0.2.0",
+	"description": "Grunt task to compile SASS",
 	"keywords": [
 		"gruntplugin",
 		"grunt",
@@ -23,11 +23,11 @@
 		"url": "git://github.com/sindresorhus/grunt-sass.git"
 	},
 	"dependencies": {
-		"grunt": "~0.3.9",
-		"node-sass": "~0.2.0"
+		"grunt": "git+https://github.com/cowboy/grunt.git#0ba6d4b529",
+		"node-sass": "~0.2.1"
 	},
 	"engines": {
-		"node": ">=0.6.0"
+		"node": ">=0.8.1"
 	},
 	"licenses": {
 		"type": "MIT"
