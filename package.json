@@ -24,10 +24,10 @@
 	},
 	"dependencies": {
 		"grunt": "git+https://github.com/cowboy/grunt.git#0ba6d4b529",
-		"node-sass": "~0.2.1"
+		"node-sass": "~0.2.2"
 	},
 	"engines": {
-		"node": ">=0.8.0"
+		"node": ">=0.6.0"
 	},
 	"licenses": {
 		"type": "MIT"
