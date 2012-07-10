@@ -36,6 +36,11 @@ module.exports = function( grunt ) {
 				elArgs.push('--scss');
 			}
 
+			// Add dirs of specified files to the sass path
+			files.forEach(function( el ) {
+				elArgs.push( '--load-path', path.dirname( el ) );
+			});
+
 			var sass = grunt.util.spawn({
 				cmd: 'sass',
 				args: elArgs.concat( args )

@@ -28,9 +28,6 @@ module.exports = function( grunt ) {
 				}
 			},
 			sass: {
-				options: {
-					loadPath: 'test/fixtures/sass/'
-				},
 				files: {
 					'test/rubysass-sass.css': 'test/fixtures/sass/test.sass',
 					'test/rubysass-sass2.css': [
