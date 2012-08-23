@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png)](http://travis-ci.org/sindresorhus/grunt-sass)
 # grunt-sass
 
 [Grunt][grunt] task to compile SASS and SCSS using the superfast [libsass](https://github.com/hcatlin/libsass) via [node-sass](https://github.com/andrew/node-sass).
