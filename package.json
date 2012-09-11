@@ -23,7 +23,7 @@
 		"url": "git://github.com/sindresorhus/grunt-sass.git"
 	},
 	"dependencies": {
-		"grunt": "git+https://github.com/cowboy/grunt.git#0ba6d4b529",
+		"grunt": "https://nodeload.github.com/cowboy/grunt/tarball/0ba6d4b529",
 		"node-sass": "~0.2.2"
 	},
 	"engines": {
