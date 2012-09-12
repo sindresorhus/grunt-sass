@@ -52,6 +52,19 @@ sass: {
 }
 ```
 
+#### Change working directory
+
+If your imports are relative to a different directory, you can specify a new cwd to start from
+
+```javascript
+sass: {
+	dist: {
+		src: 'main.scss',
+		dest: 'main.css',
+		cwd: './htdocs'
+	}
+}
+```
 
 ## Tests
 
