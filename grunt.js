@@ -9,6 +9,11 @@ module.exports = function( grunt ) {
 					'test/fixtures/test2.scss'
 				],
 				dest: 'test/compiled.css'
+			},
+			includes: {
+				src : 'test-imports.scss',
+				dest : '../compiled-imports.css',
+				cwd : 'test/fixtures'
 			}
 		},
 		lint: {

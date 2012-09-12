@@ -1,0 +1,10 @@
+.before {
+  display:block;
+}
+
+@import "test";
+@import "test2";
+
+.after {
+  display:block;
+}
