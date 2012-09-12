@@ -14,17 +14,21 @@ module.exports = function( grunt ) {
 		var sass = require('node-sass');
 		var done = this.async();
 		var dest = this.file.dest;
-		var files = grunt.file.expand( this.file.src );
+		var originalCwd = process.cwd();
+		if (this.data && this.data.cwd) process.chdir(this.data.cwd);
+
+		var files = grunt.file.expand(this.file.src );
 		var max = grunt.helper( 'concat', files );
 
 		sass.render( max, function( err, css ) {
-			grunt.file.write( dest, css );
-			grunt.helper( 'min_max_info', css, max );
-
 			if ( err ) {
 				grunt.fail.fatal( 'Compile error:', err );
 			}
 
+			grunt.file.write( dest, css );
+			grunt.helper( 'min_max_info', css, max );
+
+			if (this.data && this.data.cwd) process.chdir(originalCwd);
 			done();
 		});
 	});
