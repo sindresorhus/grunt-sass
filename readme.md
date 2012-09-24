@@ -1,4 +1,4 @@
-# grunt-sass
+# grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass)
 
 [Grunt][grunt] tasks to compile SCSS to CSS using [node-sass]()
 
