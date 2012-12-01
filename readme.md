@@ -120,6 +120,21 @@ grunt.initConfig({
 });
 ```
 
+#### Compiling to wildcard destinations (Dev-mode)
+
+Ending your destination with an `*` will treat it as a wildcard. Each file represented by the source
+will be compiled as an equivalent file in the destination.
+
+```javascript
+grunt.initConfig({
+	sass: {
+		files: {
+			'public/css/*': 'scss/**/*.scss' // 'scss/subdir/myfile.scss' =>
+			                                 // 'public/css/subdir/myfile.css'
+		}
+	}
+});
+```
 
 ## Contribute
 
