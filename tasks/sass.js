@@ -42,7 +42,6 @@ module.exports = function(grunt) {
 				var srcPatterns = sources.map(function(str) {
 						return grunt.template.process(str);
 					});
-				console.log(srcPatterns);
 				async.forEachSeries(srcPatterns, function(srcPattern, next) {
 
 					// for this pattern, determine the root, and iterate over all the files it represents
