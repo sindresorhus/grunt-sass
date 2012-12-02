@@ -1,6 +1,6 @@
 # grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass)
 
-[Grunt][grunt] tasks to compile SCSS to CSS using [node-sass]()
+[Grunt][grunt] tasks to compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
 **Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass), which is based on Ruby Sass, if you want something stable that also supports the old syntax**
 
