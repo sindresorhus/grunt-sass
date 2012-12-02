@@ -1,43 +1,43 @@
 {
-	"name": "grunt-sass",
-	"version": "0.2.2",
-	"description": "Compile SCSS to CSS using node-sass. Try grunt-contrib-sass if you want something stable.",
-	"keywords": [
-		"gruntplugin",
-		"grunt",
-		"css",
-		"sass",
-		"scss",
-		"compile",
-		"preprocess"
-	],
-	"homepage": "https://github.com/sindresorhus/grunt-sass",
-	"bugs": "https://github.com/sindresorhus/grunt-sass/issues",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "http://sindresorhus.com"
-	},
-	"main": "grunt.js",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/sindresorhus/grunt-sass.git"
-	},
-	"scripts": {
-		"test": "grunt"
-	},
-	"dependencies": {
-		"node-sass": "~0.2.5",
-		"grunt-lib-contrib": "~0.3.0"
-	},
-	"devDependencies": {
-		"grunt": "~0.3.17",
-		"grunt-contrib-clean": "~0.3.1"
-	},
-	"engines": {
-		"node": ">=0.8.0"
-	},
-	"licenses": {
-		"type": "MIT"
-	}
+  "name": "grunt-sass",
+  "version": "0.2.5",
+  "description": "Compile SCSS to CSS using node-sass. Try grunt-contrib-sass if you want something stable.",
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "css",
+    "sass",
+    "scss",
+    "compile",
+    "preprocess"
+  ],
+  "homepage": "https://github.com/sindresorhus/grunt-sass",
+  "bugs": "https://github.com/sindresorhus/grunt-sass/issues",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "main": "grunt.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sindresorhus/grunt-sass.git"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "dependencies": {
+    "node-sass": "~0.2.5",
+    "grunt-lib-contrib": "~0.3.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17",
+    "grunt-contrib-clean": "~0.3.1"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": {
+    "type": "MIT"
+  }
 }
