@@ -27,12 +27,12 @@
 		"test": "grunt"
 	},
 	"dependencies": {
-		"node-sass": "~0.2.4"
+		"node-sass": "~0.2.5",
+		"grunt-lib-contrib": "~0.3.0"
 	},
 	"devDependencies": {
 		"grunt": "~0.3.17",
-		"grunt-contrib-clean": "~0.3.1",
-		"grunt-lib-contrib": "~0.3.0"
+		"grunt-contrib-clean": "~0.3.1"
 	},
 	"engines": {
 		"node": ">=0.8.0"
