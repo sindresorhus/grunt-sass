@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 		var helpers = require('grunt-lib-contrib').init(grunt);
 		var cb = this.async();
 		var sass = require('node-sass');
+		var options = this.data.options || {}
 		var async = grunt.util.async;
 
 		// TODO: ditch this when grunt v0.4 is released
@@ -27,7 +28,7 @@ module.exports = function(grunt) {
 				grunt.helper('min_max_info', css, max);
 
 				cb2();
-			});
+			}, options);
 		}, function(err) {
 			cb(!err);
 		});
