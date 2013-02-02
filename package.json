@@ -1,6 +1,6 @@
 {
   "name": "grunt-sass",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "Compile SCSS to CSS using node-sass. Try grunt-contrib-sass if you want something stable.",
   "keywords": [
     "gruntplugin",
