@@ -1,32 +1,30 @@
-module.exports = function(grunt) {
-	'use strict';
+'use strict';
+module.exports = function (grunt) {
+	function concat(files) {
+		return files ? files.map(function (filePath) {
+			return grunt.file.read(filePath);
+		}).join(grunt.util.linefeed) : '';
+	}
 
-	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function() {
+	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function () {
 		var helpers = require('grunt-lib-contrib').init(grunt);
-		var legacyHelpers = require('grunt-lib-legacyhelpers').init(grunt);
-		var cb = this.async();
 		var sass = require('node-sass');
-		var async = grunt.util.async;
+		var cb = this.async();
 
-		// TODO: ditch this when grunt v0.4 is released
-		this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
-
-		async.forEachSeries(this.files, function(el, cb2) {
-			var files = grunt.file.expand(el.src);
+		grunt.util.async.forEachSeries(this.files, function (el, cb2) {
 			var dest = el.dest;
-			var max = legacyHelpers.concat(files);
+			var max = concat(el.src);
 
-			sass.render(max, function(err, css) {
+			sass.render(max, function (err, css) {
 				if (err) {
 					grunt.warn(err);
 				}
 
 				grunt.file.write(dest, css);
-				legacyHelpers.min_max_info(css,max);
-
+				helpers.minMaxInfo(css, max);
 				cb2();
 			});
-		}, function(err) {
+		}, function (err) {
 			cb(!err);
 		});
 	});

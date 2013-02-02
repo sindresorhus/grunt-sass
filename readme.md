@@ -1,37 +1,32 @@
 # grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass)
 
+*Requires grunt 0.4. Use version 0.2.5 for grunt 0.3 compatibility*
+
 [Grunt][grunt] tasks to compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
-**Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass), which is based on Ruby Sass, if you want something stable that also supports the old syntax**
+**Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) (based on Ruby Sass) if you want something stable that also supports the old syntax**
 
 
 ## Overview
 
-This task uses the experimental and superfast Node.js based Sass compiler, [node-sass](https://github.com/andrew/node-sass). This task only compiles .scss files.
+This task uses the experimental and superfast Node.js based Sass compiler [node-sass](https://github.com/andrew/node-sass) (which only compiles .scss files).
 
 *Note that node-sass is currently under heavy development and might be unstable, there are also some stuff missing, like compression options and file/folder context, which means you need to specify @import using the relative path from your Gruntfile.*
 
 
-## Getting started
+## Getting Started
 
-Install this grunt plugin next to your project's [Gruntfile][getting_started] with: `npm install grunt-sass`
+If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
-Then add this line to your project's Gruntfile:
-
-```javascript
-grunt.loadNpmTasks('grunt-sass');
+```shell
+npm install grunt-sass --save-dev
 ```
 
-And add the tasks you want to `grunt.registerTask`:
-
-```javascript
-grunt.registerTask('default', 'lint sass');
-```
+[grunt]: http://gruntjs.com
+[Getting Started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 
 
 ## Documentation
-
-This grunt task is a [multi task](https://github.com/cowboy/grunt/blob/master/docs/types_of_tasks.md#multi-tasks-%E2%9A%91), which means you can specify multiple subtasks and grunt will iterate over them. The `dist` below is a subtask, you could e.g. create a `dev` subtask to handle stuff while developing.
 
 See the [Gruntfile](https://github.com/sindresorhus/grunt-sass/blob/master/Gruntfile.js) in this repo for a full example.
 
@@ -64,8 +59,7 @@ grunt.initConfig({
 });
 
 grunt.loadNpmTasks('grunt-sass');
-
-grunt.registerTask('default', 'lint sass');
+grunt.registerTask('default', ['sass']);
 ```
 
 
@@ -130,7 +124,3 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 MIT License
 (c) [Sindre Sorhus](http://sindresorhus.com)
-
-
-[grunt]: https://github.com/cowboy/grunt
-[getting_started]: https://github.com/cowboy/grunt/blob/master/docs/getting_started.md

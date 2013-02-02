@@ -2,7 +2,5 @@
 .editorconfig
 .jshintrc
 .travis.yml
-*.sublime-project
-*.sublime-workspace
 test
-grunt.js
+Gruntfile.js
