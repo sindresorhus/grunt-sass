@@ -120,6 +120,24 @@ grunt.initConfig({
 });
 ```
 
+#### Compile files in a separate directory
+
+If you store your sass files in a directory other than root, you will need to
+add the path to the `include_paths` for `@import` to work as expected.
+
+```javascript
+grunt.initConfig({
+	sass: {
+		options: {
+			include_paths: ['path/to/sass']
+		},
+		files: {
+			'main.css': 'path/to/sass/main.scss',
+		}
+	}
+});
+```
+
 
 ## Contribute
 

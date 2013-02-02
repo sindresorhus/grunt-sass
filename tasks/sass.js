@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 		var legacyHelpers = require('grunt-lib-legacyhelpers').init(grunt);
 		var cb = this.async();
 		var sass = require('node-sass');
+		var options = this.data.options || {}
 		var async = grunt.util.async;
 
 		// TODO: ditch this when grunt v0.4 is released
@@ -25,7 +26,7 @@ module.exports = function(grunt) {
 				legacyHelpers.min_max_info(css,max);
 
 				cb2();
-			});
+			}, options);
 		}, function(err) {
 			cb(!err);
 		});
