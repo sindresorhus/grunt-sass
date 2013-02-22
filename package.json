@@ -1,13 +1,13 @@
 {
   "name": "grunt-sass",
   "version": "0.3.0",
-  "description": "Compile SCSS to CSS using node-sass. Try grunt-contrib-sass if you want something stable.",
+  "description": "Compile SCSS to CSS using node-sass",
   "keywords": [
     "gruntplugin",
-    "grunt",
     "css",
     "sass",
     "scss",
+    "style",
     "compile",
     "preprocess"
   ],
@@ -26,13 +26,16 @@
     "test": "grunt"
   },
   "dependencies": {
-    "node-sass": "~0.2.6",
+    "node-sass": "~0.3.0",
     "grunt-lib-contrib": "~0.5.2"
   },
   "devDependencies": {
     "grunt": "~0.4.0",
-    "grunt-contrib-clean": "0.4.0rc6",
-    "grunt-contrib-nodeunit": "0.1.2rc6"
+    "grunt-contrib-clean": "0.4.0",
+    "grunt-contrib-nodeunit": "0.1.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
   },
   "engines": {
     "node": ">=0.8.0"
