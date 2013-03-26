@@ -9,6 +9,7 @@ module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function () {
 		var helpers = require('grunt-lib-contrib').init(grunt);
 		var sass = require('node-sass');
+		var options = this.data.options || {};
 		var cb = this.async();
 
 		grunt.util.async.forEachSeries(this.files, function (el, cb2) {
@@ -23,7 +24,7 @@ module.exports = function (grunt) {
 				grunt.file.write(dest, css);
 				helpers.minMaxInfo(css, max);
 				cb2();
-			});
+			}, options);
 		}, function (err) {
 			cb(!err);
 		});

@@ -7,6 +7,14 @@ module.exports = function (grunt) {
 					'test/tmp/test.css': 'test/fixtures/test.scss'
 				}
 			},
+			include: {
+				options: {
+					'includePaths': ['./test/fixtures/']
+				},
+				files: {
+					'test/tmp/test3.css': 'test/fixtures/includePaths.scss'
+				}
+			},
 			concat: {
 				files: {
 					'test/tmp/test2.css': [
