@@ -46,6 +46,11 @@ grunt.initConfig({
 			}
 		},
 		dev: {								// Another target
+			options: {						// Dictionary of render options
+				includePaths: [
+					'location/of/imports/'
+				]
+			},
 			files: {
 				'main.css': 'main.scss',
 				'widgets.css': [
@@ -72,6 +77,27 @@ grunt.registerTask('default', ['sass']);
 grunt.initConfig({
 	sass: {
 		dist: {
+			files: {
+				'main.css': 'main.scss'
+			}
+		}
+	}
+});
+```
+
+
+#### Compile with render options
+
+If you specify `options`, they will be passed along to the [node-sass](https://github.com/andrew/node-sass) `render` method.
+
+```javascript
+grunt.initConfig({
+	sass: {
+		dist: {
+			options: {
+				includePaths: ['imports/are/here/'],
+				outputStyle: 'nested'
+			},
 			files: {
 				'main.css': 'main.scss'
 			}
