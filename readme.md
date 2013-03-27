@@ -48,7 +48,7 @@ grunt.initConfig({
 		dev: {								// Another target
 			options: {						// Dictionary of render options
 				includePaths: [
-					'location/of/imports/'
+					'path/to/imports/'
 				]
 			},
 			files: {
