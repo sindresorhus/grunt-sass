@@ -105,6 +105,9 @@ grunt.initConfig({
 	}
 });
 ```
+##### Render options
+* `includePaths`: An array of import paths to include.
+* `outputStyle`: A string allowing you to specify the CSS output style. According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
 
 
 #### Concat and compile
