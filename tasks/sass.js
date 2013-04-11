@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function () {
 		var helpers = require('grunt-lib-contrib').init(grunt);
 		var sass = require('node-sass');
-		var options = this.options() || {};
+		var options = this.options();
 		var cb = this.async();
 
 		grunt.util.async.forEachSeries(this.files, function (el, cb2) {
