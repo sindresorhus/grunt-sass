@@ -31,6 +31,21 @@ npm install grunt-sass --save-dev
 See the [Gruntfile](https://github.com/sindresorhus/grunt-sass/blob/master/Gruntfile.js) in this repo for a full example.
 
 
+### Options
+
+#### includePaths
+
+Type: `Array`
+
+Import paths to include.
+
+#### outputStyle
+
+Type: `String`
+
+Specify the CSS output style. According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
+
+
 ### Example config
 
 ```javascript
@@ -46,6 +61,11 @@ grunt.initConfig({
 			}
 		},
 		dev: {								// Another target
+			options: {						// Dictionary of render options
+				includePaths: [
+					'path/to/imports/'
+				]
+			},
 			files: {
 				'main.css': 'main.scss',
 				'widgets.css': [
@@ -72,6 +92,27 @@ grunt.registerTask('default', ['sass']);
 grunt.initConfig({
 	sass: {
 		dist: {
+			files: {
+				'main.css': 'main.scss'
+			}
+		}
+	}
+});
+```
+
+
+#### Compile with render options
+
+If you specify `options`, they will be passed along to the [node-sass](https://github.com/andrew/node-sass) `render` method.
+
+```javascript
+grunt.initConfig({
+	sass: {
+		dist: {
+			options: {
+				includePaths: ['imports/are/here/'],
+				outputStyle: 'nested'
+			},
 			files: {
 				'main.css': 'main.scss'
 			}
