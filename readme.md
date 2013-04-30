@@ -1,17 +1,15 @@
 # grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass)
 
-*Requires grunt 0.4. Use version 0.2.5 for grunt 0.3 compatibility*
-
 [Grunt][grunt] tasks to compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
-**Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) (based on Ruby Sass) if you want something stable that also supports the old syntax**
+*Requires grunt 0.4. Use version 0.2.5 for grunt 0.3 compatibility*
 
 
 ## Overview
 
 This task uses the experimental and superfast Node.js based Sass compiler [node-sass](https://github.com/andrew/node-sass) (which only compiles .scss files).
 
-*Note that node-sass is currently under heavy development and might be unstable, there are also some stuff missing, like compression options and file/folder context, which means you need to specify @import using the relative path from your Gruntfile.*
+*Note that node-sass is currently under heavy development and might be unstable, there are also some stuff missing, like a compression option. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) (based on Ruby Sass) if you want something stable that also supports the old syntax.*
 
 
 ## Getting Started
@@ -19,7 +17,7 @@ This task uses the experimental and superfast Node.js based Sass compiler [node-
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```shell
-npm install grunt-sass --save-dev
+npm install --save-dev grunt-sass
 ```
 
 [grunt]: http://gruntjs.com
@@ -39,11 +37,14 @@ Type: `Array`
 
 Import paths to include.
 
+
 #### outputStyle
 
 Type: `String`
 
-Specify the CSS output style. According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
+Specify the CSS output style. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
+
+*According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being.*
 
 
 ### Example config
@@ -163,5 +164,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 
-MIT License
-(c) [Sindre Sorhus](http://sindresorhus.com)
+MIT License • © [Sindre Sorhus](http://sindresorhus.com)
