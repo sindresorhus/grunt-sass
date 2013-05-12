@@ -42,5 +42,8 @@
   },
   "licenses": {
     "type": "MIT"
-  }
+  },
+  "files": [
+    "tasks/sass.js"
+  ]
 }
