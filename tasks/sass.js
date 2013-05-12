@@ -1,32 +1,26 @@
 'use strict';
+var sass = require('node-sass');
+
 module.exports = function (grunt) {
-	function concat(files) {
-		return files ? files.map(function (filePath) {
-			return grunt.file.read(filePath);
-		}).join(grunt.util.linefeed) : '';
-	}
-
 	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function () {
-		var helpers = require('grunt-lib-contrib').init(grunt);
-		var sass = require('node-sass');
-		var options = this.options();
-		var cb = this.async();
-
-		grunt.util.async.forEachSeries(this.files, function (el, cb2) {
-			var dest = el.dest;
-			var max = concat(el.src);
-
-			sass.render(max, function (err, css) {
-				if (err) {
-					grunt.warn(err);
-				}
-
-				grunt.file.write(dest, css);
-				helpers.minMaxInfo(css, max);
-				cb2();
-			}, options);
-		}, function (err) {
-			cb(!err);
+		var options = this.options({
+			includePaths: [],
+			outputStyle: 'nested'
 		});
+
+		grunt.util.async.forEachSeries(this.files, function (el, next) {
+			sass.render({
+				file: el.src[0],
+				success: function (css) {
+					grunt.file.write(el.dest, css);
+					next();
+				},
+				error: function (err) {
+					grunt.warn(err);
+				},
+				includePaths: options.includePaths,
+				outputStyle: options.outputStyle
+			});
+		}, this.async());
 	});
 };

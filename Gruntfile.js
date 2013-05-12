@@ -14,14 +14,6 @@ module.exports = function (grunt) {
 				files: {
 					'test/tmp/test3.css': 'test/fixtures/includePaths.scss'
 				}
-			},
-			concat: {
-				files: {
-					'test/tmp/test2.css': [
-						'test/fixtures/test.scss',
-						'test/fixtures/imported.scss'
-					]
-				}
 			}
 		},
 		nodeunit: {

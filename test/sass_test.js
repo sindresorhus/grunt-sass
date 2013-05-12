@@ -19,14 +19,5 @@ exports.sass = {
 		test.equal(actual, expected, 'should compile SCSS to CSS with options');
 
 		test.done();
-	},
-	concat: function (test) {
-		test.expect(1);
-
-		var actual = grunt.file.read('test/tmp/test2.css');
-		var expected = grunt.file.read('test/expected/test2.css');
-		test.equal(actual, expected, 'should concat multiple `src` files');
-
-		test.done();
 	}
 };

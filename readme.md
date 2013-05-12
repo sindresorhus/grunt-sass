@@ -2,14 +2,14 @@
 
 [Grunt][grunt] tasks to compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
-*Requires grunt 0.4. Use version 0.2.5 for grunt 0.3 compatibility*
+*Requires grunt 0.4. Use version 0.2.5 for grunt 0.3 compatibility.*
 
 
 ## Overview
 
 This task uses the experimental and superfast Node.js based Sass compiler [node-sass](https://github.com/andrew/node-sass) (which only compiles .scss files).
 
-*Note that node-sass is currently under heavy development and might be unstable, there are also some stuff missing, like a compression option. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) (based on Ruby Sass) if you want something stable that also supports the old syntax.*
+*Note that node-sass is currently under heavy development and might be unstable, there are also some stuff missing, like a compression option. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) (based on Ruby Sass) if you want something stable that also supports the old syntax, but in turn much slower.*
 
 
 ## Getting Started
@@ -33,14 +33,16 @@ See the [Gruntfile](https://github.com/sindresorhus/grunt-sass/blob/master/Grunt
 
 #### includePaths
 
-Type: `Array`
+Type: `Array`  
+Default: `[]`
 
 Import paths to include.
 
 
 #### outputStyle
 
-Type: `String`
+Type: `String`  
+Default: `nested`
 
 Specify the CSS output style. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
 
@@ -54,11 +56,7 @@ grunt.initConfig({
 	sass: {									// Task
 		dist: {								// Target
 			files: {						// Dictionary of files
-				'main.css': 'main.scss',	// 'destination': 'source'
-				'widgets.css': [			// Multiple sources will be concatenated
-					'button.scss',
-					'tab.scss'
-				]
+				'main.css': 'main.scss'		// 'destination': 'source'
 			}
 		},
 		dev: {								// Another target
@@ -68,12 +66,7 @@ grunt.initConfig({
 				]
 			},
 			files: {
-				'main.css': 'main.scss',
-				'widgets.css': [
-					'button.scss',
-					'tab.scss',
-					'debug.scss'			// Maybe you need one extra file in dev
-				]
+				'main.css': 'main.scss'
 			}
 		}
 	}
@@ -123,24 +116,6 @@ grunt.initConfig({
 ```
 
 
-#### Concat and compile
-
-If you specify an array of `src` paths they will be concatenated. However, in most cases you would want to just `@import` them into `main.scss`.
-
-```javascript
-grunt.initConfig({
-	sass: {
-		files: {
-			'main.css': [
-				'reset.scss',
-				'main.scss'
-			]
-		}
-	}
-});
-```
-
-
 #### Compile multiple files
 
 You can also compile multiple files into multiple destinations.
@@ -157,9 +132,11 @@ grunt.initConfig({
 ```
 
 
-## Contribute
+## Breaking changes
 
-In lieu of a formal styleguide, take care to maintain the existing coding style.
+### 0.6.0
+
+You can no longer use an array as src to concat multiple files. Use Sass `@import` instead.
 
 
 ## License
