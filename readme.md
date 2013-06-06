@@ -33,7 +33,7 @@ See the [Gruntfile](https://github.com/sindresorhus/grunt-sass/blob/master/Grunt
 
 #### includePaths
 
-Type: `Array`  
+Type: `Array`
 Default: `[]`
 
 Import paths to include.
@@ -41,7 +41,7 @@ Import paths to include.
 
 #### outputStyle
 
-Type: `String`  
+Type: `String`
 Default: `nested`
 
 Specify the CSS output style. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
