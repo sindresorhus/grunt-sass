@@ -125,7 +125,7 @@ grunt.initConfig({
 	sass: {
 		files: {
 			'main.css': 'main.scss',
-			'widgets.css': 'widgets.sass'
+			'widgets.css': 'widgets.scss'
 		}
 	}
 });
