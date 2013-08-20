@@ -13,6 +13,7 @@ module.exports = function (grunt) {
 				file: el.src[0],
 				success: function (css) {
 					grunt.file.write(el.dest, css);
+					grunt.log.writeln('File "' + el.dest + '" created.');
 					next();
 				},
 				error: function (err) {
