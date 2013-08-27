@@ -2,7 +2,8 @@
 
 [Grunt][grunt] tasks to compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
-*Requires grunt 0.4. Use version 0.2.5 for grunt 0.3 compatibility.*
+**Bugs with the output should be submitted on the [libsass](https://github.com/hcatlin/libsass) repo which is the actual compiler.  
+Make sure to review its issue tracker for known bugs before using this task as it can bite you later on.**
 
 
 ## Overview
