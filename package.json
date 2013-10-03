@@ -1,6 +1,6 @@
 {
   "name": "grunt-sass",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Compile SCSS to CSS using node-sass",
   "keywords": [
     "gruntplugin",
@@ -26,7 +26,7 @@
     "test": "grunt"
   },
   "dependencies": {
-    "node-sass": "~0.6.2",
+    "node-sass": "~0.6.7",
     "grunt-lib-contrib": "~0.6.1"
   },
   "devDependencies": {
