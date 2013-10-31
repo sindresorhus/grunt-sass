@@ -2,7 +2,7 @@
 
 [Grunt][grunt] tasks to compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
-**Bugs with the output should be submitted on the [libsass](https://github.com/hcatlin/libsass) repo which is the actual compiler.  
+**Bugs with the output should be submitted on the [libsass](https://github.com/hcatlin/libsass) repo which is the actual compiler.
 Make sure to review its issue tracker for known bugs before using this task as it can bite you later on.**
 
 
@@ -34,7 +34,7 @@ See the [Gruntfile](https://github.com/sindresorhus/grunt-sass/blob/master/Grunt
 
 #### includePaths
 
-Type: `Array`  
+Type: `Array`
 Default: `[]`
 
 Import paths to include.
@@ -42,13 +42,20 @@ Import paths to include.
 
 #### outputStyle
 
-Type: `String`  
+Type: `String`
 Default: `nested`
 
 Specify the CSS output style. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
 
 *According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being.*
 
+
+#### sourceComments
+
+Type: `String`
+Default: `none`
+
+Specify what debug information is included in the output file. Available values are 'none', 'normal', 'map'.
 
 ### Example config
 

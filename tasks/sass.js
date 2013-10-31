@@ -5,7 +5,8 @@ module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function () {
 		var options = this.options({
 			includePaths: [],
-			outputStyle: 'nested'
+			outputStyle: 'nested',
+			sourceComments: 'none'
 		});
 
 		grunt.util.async.forEachSeries(this.files, function (el, next) {
@@ -20,7 +21,8 @@ module.exports = function (grunt) {
 					grunt.warn(err);
 				},
 				includePaths: options.includePaths,
-				outputStyle: options.outputStyle
+				outputStyle: options.outputStyle,
+				sourceComments: options.sourceComments
 			});
 		}, this.async());
 	});
