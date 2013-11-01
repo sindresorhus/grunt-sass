@@ -24,8 +24,7 @@ exports.sass = {
 		test.expect(1);
 
 		var actual = grunt.file.read('test/tmp/source-comments.css');
-		var expected = grunt.file.read('test/expected/source-comments.css');
-		test.equal(actual, expected, 'should include sourceComments');
+		test.ok(/^\/\* line 1/.test(actual), 'should include sourceComments');
 
 		test.done();
 	}
