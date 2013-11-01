@@ -43,11 +43,23 @@ Import paths to include.
 #### outputStyle
 
 Type: `String`  
-Default: `nested`
+Default: `nested`  
+Values: `'nested'`, `'expanded'`, `'compact'`, `'compressed'`
 
-Specify the CSS output style. Available styles are 'nested', 'expanded', 'compact', 'compressed'.
+Specify the CSS output style.
 
 *According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being.*
+
+
+#### sourceComments
+
+Type: `String`  
+Default: `'none'`  
+Values: `'none'`, `'normal'`
+
+Set what debug information is included in the output file.
+
+**Note that this is the Sass debugInfo and not Source Maps. You can track Source Maps progress [here](https://github.com/hcatlin/libsass/issues/122).**
 
 
 ### Example config

@@ -4,20 +4,28 @@ module.exports = function (grunt) {
 		sass: {
 			compile: {
 				files: {
-					'test/tmp/test.css': 'test/fixtures/test.scss'
+					'test/tmp/compile.css': 'test/fixtures/test.scss'
 				}
 			},
-			include: {
+			includePaths: {
 				options: {
-					'includePaths': ['./test/fixtures/']
+					'includePaths': ['./test/fixtures']
 				},
 				files: {
-					'test/tmp/test3.css': 'test/fixtures/includePaths.scss'
+					'test/tmp/include-paths.css': 'test/fixtures/include-paths.scss'
 				}
-			}
+			},
+			sourceComments: {
+				options: {
+					sourceComments: 'normal'
+				},
+				files: {
+					'test/tmp/source-comments.css': 'test/fixtures/test.scss'
+				}
+			},
 		},
 		nodeunit: {
-			tasks: ['test/*_test.js']
+			tasks: ['test/test.js']
 		},
 		clean: {
 			test: ['test/tmp']
