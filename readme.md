@@ -24,6 +24,8 @@ npm install --save-dev grunt-sass
 [grunt]: http://gruntjs.com
 [Getting Started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 
+*Tip: the [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) module makes it easier to load multiple grunt tasks.*
+
 
 ## Documentation
 
