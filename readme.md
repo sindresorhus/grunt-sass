@@ -24,7 +24,7 @@ npm install --save-dev grunt-sass
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-eslint');
+grunt.loadNpmTasks('grunt-sass');
 ```
 
 *Tip: the [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) module makes it easier to load multiple grunt tasks.*
