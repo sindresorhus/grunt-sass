@@ -1,5 +1,6 @@
 'use strict';
 var sass = require('node-sass');
+var async = require('async');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function () {
@@ -9,7 +10,7 @@ module.exports = function (grunt) {
 			sourceComments: 'none'
 		});
 
-		grunt.util.async.forEachSeries(this.files, function (el, next) {
+		async.eachSeries(this.files, function (el, next) {
 			sass.render({
 				file: el.src[0],
 				success: function (css) {
