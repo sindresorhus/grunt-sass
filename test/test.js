@@ -27,5 +27,12 @@ exports.sass = {
 		test.ok(/^\/\* line 1/.test(actual), 'should include sourceComments');
 
 		test.done();
+	},
+	ignorePartials: function (test) {
+		test.expect(1);
+
+		test.ok(!grunt.file.exists('test/tmp/_partial.css'), 'underscore partial files should be ignored');
+
+		test.done();
 	}
 };
