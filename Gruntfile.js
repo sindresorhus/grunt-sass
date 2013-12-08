@@ -23,6 +23,13 @@ module.exports = function (grunt) {
 					'test/tmp/source-comments.css': 'test/fixtures/test.scss'
 				}
 			},
+			ignorePartials: {
+				cwd: 'test/fixtures/partials',
+				src: '*.scss',
+				dest: 'test/tmp',
+				expand: true,
+				ext: '.css'
+			}
 		},
 		nodeunit: {
 			tasks: ['test/test.js']
