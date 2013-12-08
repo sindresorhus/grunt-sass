@@ -13,6 +13,9 @@ module.exports = function (grunt) {
 
 		async.eachSeries(this.files, function (el, next) {
 			var src = el.src[0];
+			if (typeof src !== 'string') {
+				src = el.orig.src[0];
+			}
 			if (path.basename(src)[0] === '_') {
 				return next();
 			}
