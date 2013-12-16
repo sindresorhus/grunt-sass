@@ -1,6 +1,6 @@
-# grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass)
+# grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-[Grunt][grunt] tasks to compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
+> Compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
 **Bugs with the output should be submitted on the [libsass](https://github.com/hcatlin/libsass) repo which is the actual compiler.  
 Make sure to review its issue tracker for known bugs before using this task as it can bite you later on.**
@@ -154,13 +154,6 @@ grunt.initConfig({
 ```
 
 
-## Breaking changes
-
-### 0.6.0
-
-You can no longer use an array as src to concat multiple files. Use Sass `@import` instead.
-
-
 ## License
 
-MIT License • © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)
