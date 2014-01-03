@@ -19,9 +19,11 @@ module.exports = function (grunt) {
 
 			sass.render({
 				file: src,
-				success: function (css) {
+				success: function (css, map) {
 					grunt.file.write(el.dest, css);
 					grunt.log.writeln('File "' + el.dest + '" created.');
+					grunt.file.write(el.dest+".map", map)
+					grunt.log.writeln('File "' + el.dest + '.map " created.');
 					next();
 				},
 				error: function (err) {
@@ -29,7 +31,8 @@ module.exports = function (grunt) {
 				},
 				includePaths: options.includePaths,
 				outputStyle: options.outputStyle,
-				sourceComments: options.sourceComments
+				sourceComments: options.sourceComments,
+				sourceMap: options.sourceMap
 			});
 		}, this.async());
 	});
