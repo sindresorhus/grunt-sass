@@ -26,7 +26,7 @@
     "test": "grunt"
   },
   "dependencies": {
-    "node-sass": "~0.7.0",
+    "node-sass-swist": "~0.7.0",
     "async": "~0.2.9"
   },
   "devDependencies": {
