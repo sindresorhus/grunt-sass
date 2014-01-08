@@ -29,7 +29,16 @@ module.exports = function (grunt) {
 				dest: 'test/tmp',
 				expand: true,
 				ext: '.css'
-			}
+			},
+			sourceMap: {
+				options: {
+					sourceComments: 'map',
+					sourceMap: 'source-map.css.map'
+				},
+				files: {
+					'test/tmp/source-map.css': 'test/fixtures/test.scss'
+				}
+			},
 		},
 		nodeunit: {
 			tasks: ['test/test.js']
