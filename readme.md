@@ -1,4 +1,4 @@
-# grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+﻿# grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > Compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
@@ -148,6 +148,26 @@ grunt.initConfig({
 		files: {
 			'main.css': 'main.scss',
 			'widgets.css': 'widgets.scss'
+		}
+	}
+});
+```
+
+Or you can make use of [dynamic mappings](http://gruntjs.com/configuring-tasks#building-the-files-object-dynamically).
+
+```javascript
+grunt.initConfig({
+	sass: {
+		dist: {
+			files: [
+				{
+					expand: true,
+					cwd: 'path/to/scss/',
+					src: ['*.scss'],
+					dest: 'path/to/css/',
+					ext: '.css'
+				}
+			]
 		}
 	}
 });
