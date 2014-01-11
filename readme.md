@@ -64,11 +64,16 @@ Specify the CSS output style.
 
 Type: `String`  
 Default: `'none'`  
-Values: `'none'`, `'normal'`
+Values: `'none'`, `'normal'`, `'map'`
 
-Set what debug information is included in the output file.
+Set what debug information is included in the output file. The `map` option will create the source map file in your CSS destination.
 
-**Note that this is the Sass debugInfo and not Source Maps. You can track Source Maps progress [here](https://github.com/hcatlin/libsass/issues/122).**
+
+#### sourceMap
+
+Type: `String`
+
+If your `sourceComments` option is set to `map`, `sourceMap` allows setting a new path context for the referenced Sass files. The source map describes a path from your CSS file location, into the the folder where the Sass files are located. In most occasions this will work out-of-the-box but, in some cases, you may need to set a different output.
 
 
 ### Example config
@@ -117,11 +122,9 @@ grunt.initConfig({
 ```
 
 
-#### Compile with render options
+#### Compile with options
 
-If you specify `options`, they will be passed along to the [node-sass](https://github.com/andrew/node-sass) `render` method.
-
-```javascript
+```js
 grunt.initConfig({
 	sass: {
 		dist: {
@@ -142,7 +145,7 @@ grunt.initConfig({
 
 You can also compile multiple files into multiple destinations.
 
-```javascript
+```js
 grunt.initConfig({
 	sass: {
 		files: {
