@@ -22,8 +22,12 @@ module.exports = function (grunt) {
 				success: function (css, map) {
 					grunt.file.write(el.dest, css);
 					grunt.log.writeln('File "' + el.dest + '" created.');
-					grunt.file.write(el.dest + '.map', map)
-					grunt.log.writeln('File "' + el.dest + '.map " created.');
+
+					if (map) {
+						grunt.file.write(el.dest + '.map', map)
+						grunt.log.writeln('File "' + el.dest + '.map " created.');
+					}
+
 					next();
 				},
 				error: function (err) {
