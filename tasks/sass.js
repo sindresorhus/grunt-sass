@@ -1,7 +1,8 @@
 'use strict';
-var sass = require('node-sass');
-var async = require('async');
 var path = require('path');
+var async = require('async');
+var chalk = require('chalk');
+var sass = require('node-sass');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile SCSS to CSS', function () {
@@ -13,6 +14,7 @@ module.exports = function (grunt) {
 
 		async.eachSeries(this.files, function (el, next) {
 			var src = el.src[0];
+
 			if (path.basename(src)[0] === '_') {
 				return next();
 			}
@@ -21,11 +23,11 @@ module.exports = function (grunt) {
 				file: src,
 				success: function (css, map) {
 					grunt.file.write(el.dest, css);
-					grunt.log.writeln('File "' + el.dest + '" created.');
+					grunt.log.writeln('File ' + chalk.cyan(el.dest) + ' created.');
 
 					if (map) {
 						grunt.file.write(el.dest + '.map', map)
-						grunt.log.writeln('File "' + el.dest + '.map " created.');
+						grunt.log.writeln('File ' + chalk.cyan(el.dest + '.map') + ' created.');
 					}
 
 					next();

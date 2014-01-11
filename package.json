@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "node-sass": "~0.8.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
     "grunt": "~0.4.0",
