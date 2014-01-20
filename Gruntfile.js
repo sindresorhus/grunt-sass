@@ -39,6 +39,22 @@ module.exports = function (grunt) {
 					'test/tmp/source-map.css': 'test/fixtures/test.scss'
 				}
 			},
+			sourceMapBySourceComment: {
+				options: {
+					sourceComments: 'map'
+				},
+				files: {
+					'test/tmp/source-map-sc.css': 'test/fixtures/test.scss'
+				}
+			},
+			sourceMapSimple: {
+				options: {
+					sourceMap: true
+				},
+				files: {
+					'test/tmp/source-map-simple.css': 'test/fixtures/test.scss'
+				}
+			},
 		},
 		nodeunit: {
 			tasks: ['test/test.js']
