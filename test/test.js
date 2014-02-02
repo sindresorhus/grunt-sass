@@ -44,5 +44,27 @@ exports.sass = {
 		var map = grunt.file.read('test/tmp/source-map.css.map');
 		test.ok(/\"file\"\: \"test\.scss\"/.test(map), 'should include the main file in sourceMap at least');
 		test.done();
+	},
+	sourceMapBySourceComment: function (test) {
+		test.expect(3);
+
+		var css = grunt.file.read('test/tmp/source-map-sc.css');
+		test.ok(/\/\*\# sourceMappingURL\=source\-map-sc\.css\.map/.test(css), 'should include sourceMapppingUrl');
+
+		var map = grunt.file.read('test/tmp/source-map-sc.css.map');
+		test.ok(/\"file\"\: \"test\.scss\"/.test(map), 'should include the main file in sourceMap at least');
+		test.ok(/\"sources\"\: \[\"\.\.\/fixtures\/test\.scss\"/.test(map), 'should resolve full path to test.scss');
+		test.done();
+	},
+	sourceMapSimple: function (test) {
+		test.expect(3);
+
+		var css = grunt.file.read('test/tmp/source-map-simple.css');
+		test.ok(/\/\*\# sourceMappingURL\=source\-map-simple\.css\.map/.test(css), 'should include sourceMappingUrl');
+
+		var map = grunt.file.read('test/tmp/source-map-simple.css.map');
+		test.ok(/\"file\"\: \"test\.scss\"/.test(map), 'should include the main file in sourceMap at least');
+		test.ok(/\"sources\"\: \[\"\.\.\/fixtures\/test\.scss\"/.test(map), 'should resolve path to test.scss');
+		test.done();
 	}
 };
