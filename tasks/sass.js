@@ -1,6 +1,6 @@
 'use strict';
 var path = require('path');
-var async = require('async');
+var eachAsync = require('each-async');
 var chalk = require('chalk');
 var sass = require('node-sass');
 
@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 			sourceComments: 'none'
 		});
 
-		// Set the sourceMap path if the sourceComment was 'map', but set source-map was missing
+		// set the sourceMap path if the sourceComment was 'map', but set source-map was missing
 		if (options.sourceComments === 'map' && !options.sourceMap) {
 			options.sourceMap = true;
 		}
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 			options.sourceComments = 'map';
 		}
 
-		async.eachSeries(this.files, function (el, next) {
+		eachAsync(this.files, function (el, i, next) {
 			var src = el.src[0];
 
 			if (path.basename(src)[0] === '_') {
@@ -44,9 +44,7 @@ module.exports = function (grunt) {
 
 					next();
 				},
-				error: function (err) {
-					grunt.warn(err);
-				},
+				error: grunt.warn,
 				includePaths: options.includePaths,
 				outputStyle: options.outputStyle,
 				sourceComments: options.sourceComments
