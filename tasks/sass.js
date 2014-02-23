@@ -11,7 +11,8 @@ module.exports = function (grunt) {
 		var options = this.options({
 			includePaths: [],
 			outputStyle: 'nested',
-			sourceComments: 'none'
+			sourceComments: 'none',
+			cache: false
 		});
 
 		// set the sourceMap path if the sourceComment was 'map', but set source-map was missing
@@ -34,11 +35,23 @@ module.exports = function (grunt) {
 			var renderOpts = {
 				file: src,
 				success: function (css, map) {
-					grunt.file.write(el.dest, css);
-					grunt.log.writeln('File ' + chalk.cyan(el.dest) + ' created.');
-
-					if (map) {
-						grunt.file.write(el.dest + '.map', map)
+					var performWrite = true,
+						targetContents;
+					
+					if(options.cache && grunt.file.exists(el.dest)) {
+						targetContents = grunt.file.read(el.dest);
+						performWrite = targetContents !== css;
+					}
+					
+					if(performWrite) {
+						grunt.file.write(el.dest, css);
+						grunt.log.writeln('File ' + chalk.cyan(el.dest) + ' created.');
+					} else {
+						grunt.log.writeln('Skipping ' + el.dest + '... identical');
+					}
+					
+					if(map) {
+						grunt.file.write(el.dest + '.map', map);
 						grunt.log.writeln('File ' + chalk.cyan(el.dest + '.map') + ' created.');
 					}
 
