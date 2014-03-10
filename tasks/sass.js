@@ -25,14 +25,11 @@ module.exports = function (grunt) {
 		}
 
 		eachAsync(this.files, function (el, i, next) {
-			var src = el.src[0];
-
-			if (path.basename(src)[0] === '_') {
+			if (path.basename(el.dest)[0] === '_') {
 				return next();
 			}
 
 			var renderOpts = {
-				file: src,
 				success: function (css, map) {
 					grunt.file.write(el.dest, css);
 					grunt.log.writeln('File ' + chalk.cyan(el.dest) + ' created.');
@@ -49,6 +46,12 @@ module.exports = function (grunt) {
 				outputStyle: options.outputStyle,
 				sourceComments: options.sourceComments
 			};
+
+			if (el.src.length > 1) {
+				renderOpts.data = '@import "' + el.src.join('";\n@import "') + '";\n';
+			} else {
+				renderOpts.file = el.src[0];
+			}
 
 			if (options.sourceMap) {
 				if (options.sourceMap === true) {
