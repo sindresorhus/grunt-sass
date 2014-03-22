@@ -20,6 +20,14 @@ exports.sass = {
 
 		test.done();
 	},
+	imagePath: function (test) {
+		test.expect(1);
+
+		var actual = grunt.file.read('test/tmp/image-path.css');
+		test.ok(/\/\/cdn\.test\.com\/image.png/.test(actual), 'should process image-url according to imagePath');
+
+		test.done();
+	},
 	sourceComments: function (test) {
 		test.expect(1);
 

@@ -15,6 +15,14 @@ module.exports = function (grunt) {
 					'test/tmp/include-paths.css': 'test/fixtures/include-paths.scss'
 				}
 			},
+			imagePath: {
+				options: {
+					imagePath: '//cdn.test.com'
+				},
+				files: {
+					'test/tmp/image-path.css': 'test/fixtures/image-path.scss'
+				}
+			},
 			sourceComments: {
 				options: {
 					sourceComments: 'normal'
