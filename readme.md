@@ -59,6 +59,12 @@ Specify the CSS output style.
 
 *According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being.*
 
+#### imagePath
+
+Type: `String`
+Default: `""`
+
+Base path for `images-url`. See [node-sass documentation](https://github.com/andrew/node-sass#imagepath) for more info.
 
 #### sourceComments
 
