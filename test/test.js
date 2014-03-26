@@ -46,7 +46,7 @@ exports.sass = {
 		test.done();
 	},
 	sourceMapBySourceComment: function (test) {
-		test.expect(3);
+		test.expect(2);
 
 		var css = grunt.file.read('test/tmp/source-map-sc.css');
 		test.ok(/\/\*\# sourceMappingURL\=source\-map-sc\.css\.map/.test(css), 'should include sourceMapppingUrl');
@@ -56,7 +56,7 @@ exports.sass = {
 		test.done();
 	},
 	sourceMapSimple: function (test) {
-		test.expect(3);
+		test.expect(2);
 
 		var css = grunt.file.read('test/tmp/source-map-simple.css');
 		test.ok(/\/\*\# sourceMappingURL\=source\-map-simple\.css\.map/.test(css), 'should include sourceMappingUrl');
