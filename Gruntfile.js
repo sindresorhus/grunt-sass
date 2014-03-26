@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 			},
 			includePaths: {
 				options: {
-					'includePaths': ['./test/fixtures']
+					includePaths: ['./test/fixtures']
 				},
 				files: {
 					'test/tmp/include-paths.css': 'test/fixtures/include-paths.scss'

@@ -1,9 +1,9 @@
-# grunt-sass [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-sass.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-sass) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-sass [![Build Status](https://travis-ci.org/sindresorhus/grunt-sass.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-sass)
 
 > Compile SCSS to CSS using [node-sass](https://github.com/andrew/node-sass)
 
-**Bugs with the output should be submitted on the [libsass](https://github.com/hcatlin/libsass) repo which is the actual compiler.  
-Make sure to review its issue tracker for known bugs before using this task as it can bite you later on.**
+**Bugs with the output should be submitted on the [libsass](https://github.com/hcatlin/libsass) repo which is the actual compiler.**  
+Make sure to review its issue tracker for known bugs before using this task as it can bite you later on.
 
 
 ## Overview
@@ -18,7 +18,7 @@ This task uses the experimental and superfast Node.js based Sass compiler [node-
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```shell
-npm install --save-dev grunt-sass
+$ npm install --save-dev grunt-sass
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -48,23 +48,19 @@ Default: `[]`
 
 Import paths to include.
 
-
 #### outputStyle
 
 Type: `String`  
 Default: `nested`  
-Values: `'nested'`, `'expanded'`, `'compact'`, `'compressed'`
+Values: `'nested'`, `'compressed'`
 
 Specify the CSS output style.
-
-*According to the [node-sass](https://github.com/andrew/node-sass) documentation, there is currently a problem with lib-sass so this option is best avoided for the time being.*
 
 #### imagePath
 
 Type: `String`
-Default: `""`
 
-Base path for `images-url`. See [node-sass documentation](https://github.com/andrew/node-sass#imagepath) for more info.
+Represents the public image path. When using the `image-url()` function in a stylesheet, this path will be prepended to the path you supply. eg. Given an `imagePath` of `/path/to/images`, `background-image: image-url('image.png')` will compile to `background-image: url("/path/to/images/image.png")`.
 
 #### sourceComments
 
@@ -73,7 +69,6 @@ Default: `'none'`
 Values: `'none'`, `'normal'`, `'map'`
 
 Set what debug information is included in the output file. The `map` option will create the source map file in your CSS destination.
-
 
 #### sourceMap
 
@@ -86,14 +81,14 @@ If your `sourceComments` option is set to `map`, `sourceMap` allows setting a ne
 
 ```javascript
 grunt.initConfig({
-	sass: {									// Task
-		dist: {								// Target
-			files: {						// Dictionary of files
+	sass: {									// task
+		dist: {								// target
+			files: {						// dictionary of files
 				'main.css': 'main.scss'		// 'destination': 'source'
 			}
 		},
-		dev: {								// Another target
-			options: {						// Dictionary of render options
+		dev: {								// another target
+			options: {						// dictionary of render options
 				includePaths: [
 					'path/to/imports/'
 				]
@@ -165,4 +160,4 @@ grunt.initConfig({
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
