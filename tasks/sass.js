@@ -44,7 +44,10 @@ module.exports = function (grunt) {
 
 					next();
 				},
-				error: grunt.warn,
+				error: function (error) {
+					grunt.warn(error);
+					next(error);
+				},
 				includePaths: options.includePaths,
 				imagePath: options.imagePath,
 				outputStyle: options.outputStyle,
