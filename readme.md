@@ -157,7 +157,3 @@ grunt.initConfig({
 });
 ```
 
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
