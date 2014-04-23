@@ -31,6 +31,12 @@ module.exports = function (grunt) {
 				return next();
 			}
 
+            if (!src){
+                var src_error = "File " + el.orig.src[0] + " doesn't exist.\n";
+                grunt.warn(src_error);
+                next(src_error);
+            }
+
 			var renderOpts = {
 				file: src,
 				success: function (css, map) {
