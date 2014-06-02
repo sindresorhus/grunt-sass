@@ -23,7 +23,7 @@
     "test": "grunt"
   },
   "dependencies": {
-    "node-sass": "^0.8.0",
+    "node-sass": "^0.8.6",
     "chalk": "^0.4.0",
     "each-async": "^0.1.2"
   },
