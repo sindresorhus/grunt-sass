@@ -28,14 +28,6 @@ exports.sass = {
 
 		test.done();
 	},
-	sourceComments: function (test) {
-		test.expect(1);
-
-		var actual = grunt.file.read('test/tmp/source-comments.css');
-		test.ok(/^\/\* line 1/.test(actual), 'should include sourceComments');
-
-		test.done();
-	},
 	ignorePartials: function (test) {
 		test.expect(1);
 
@@ -51,16 +43,6 @@ exports.sass = {
 
 		var map = grunt.file.read('test/tmp/source-map.css.map');
 		test.ok(/test\.scss/.test(map), 'should include the main file in sourceMap at least');
-		test.done();
-	},
-	sourceMapBySourceComment: function (test) {
-		test.expect(2);
-
-		var css = grunt.file.read('test/tmp/source-map-sc.css');
-		test.ok(/\/\*\# sourceMappingURL\=source\-map-sc\.css\.map/.test(css), 'should include sourceMapppingUrl');
-
-		var map = grunt.file.read('test/tmp/source-map-sc.css.map');
-		test.ok(/test\.scss\"/.test(map), 'should include the main file in sourceMap at least');
 		test.done();
 	},
 	sourceMapSimple: function (test) {

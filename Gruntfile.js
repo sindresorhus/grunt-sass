@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 			},
 			includePaths: {
 				options: {
-					includePaths: ['./test/fixtures']
+					includePaths: ['test/fixtures']
 				},
 				files: {
 					'test/tmp/include-paths.css': 'test/fixtures/include-paths.scss'
@@ -23,14 +23,6 @@ module.exports = function (grunt) {
 					'test/tmp/image-path.css': 'test/fixtures/image-path.scss'
 				}
 			},
-			sourceComments: {
-				options: {
-					sourceComments: 'normal'
-				},
-				files: {
-					'test/tmp/source-comments.css': 'test/fixtures/test.scss'
-				}
-			},
 			ignorePartials: {
 				cwd: 'test/fixtures/partials',
 				src: '*.scss',
@@ -40,19 +32,10 @@ module.exports = function (grunt) {
 			},
 			sourceMap: {
 				options: {
-					sourceComments: 'map',
 					sourceMap: 'source-map.css.map'
 				},
 				files: {
 					'test/tmp/source-map.css': 'test/fixtures/test.scss'
-				}
-			},
-			sourceMapBySourceComment: {
-				options: {
-					sourceComments: 'map'
-				},
-				files: {
-					'test/tmp/source-map-sc.css': 'test/fixtures/test.scss'
 				}
 			},
 			sourceMapSimple: {
@@ -68,7 +51,7 @@ module.exports = function (grunt) {
 			tasks: ['test/test.js']
 		},
 		clean: {
-			test: ['test/tmp']
+			test: ['test/tmp/**']
 		}
 	});
 
