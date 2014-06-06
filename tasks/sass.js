@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 				grunt.file.write(el.dest, '');
 			}
 
-			sass.renderFile(assign(options, {
+			sass.renderFile(assign({}, options, {
 				file: src,
 				outFile: el.dest,
 				success: function (css, map) {

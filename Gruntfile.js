@@ -4,7 +4,8 @@ module.exports = function (grunt) {
 		sass: {
 			compile: {
 				files: {
-					'test/tmp/compile.css': 'test/fixtures/test.scss'
+					'test/tmp/compile.css': 'test/fixtures/test.scss',
+					'test/tmp/compile2.css': 'test/fixtures/test.scss'
 				}
 			},
 			includePaths: {

@@ -3,11 +3,13 @@ var grunt = require('grunt');
 
 exports.sass = {
 	compile: function (test) {
-		test.expect(1);
+		test.expect(2);
 
 		var actual = grunt.file.read('test/tmp/compile.css');
+		var actual2 = grunt.file.read('test/tmp/compile2.css');
 		var expected = grunt.file.read('test/expected/compile.css');
 		test.equal(actual, expected, 'should compile SCSS to CSS');
+		test.equal(actual2, expected, 'should compile SCSS to CSS');
 
 		test.done();
 	},
