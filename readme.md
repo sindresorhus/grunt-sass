@@ -9,7 +9,14 @@
 This task uses libsass which is an experimental Sass compiler in C++. In contrast to the original Ruby compiler, this one is much faster, but is missing some features, though improving quickly. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) if you prefer something more stable, but slower.
 
 
-## Example
+## Install
+
+```sh
+$ npm install --save-dev grunt-sass
+```
+
+
+## Usage
 
 ```js
 grunt.initConfig({
