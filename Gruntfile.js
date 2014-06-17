@@ -47,6 +47,14 @@ module.exports = function (grunt) {
 					'test/tmp/source-map-simple.css': 'test/fixtures/test.scss'
 				}
 			},
+			precision: {
+				options: {
+					precision: 3
+				},
+				files: {
+					'test/tmp/precision.css': 'test/fixtures/precision.scss'
+				}
+			}
 		},
 		nodeunit: {
 			tasks: ['test/test.js']

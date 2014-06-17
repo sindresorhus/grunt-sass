@@ -7,7 +7,9 @@ var sass = require('node-sass');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
-		var options = this.options();
+		var options = this.options({
+			precision: 10
+		});
 
 		eachAsync(this.files, function (el, i, next) {
 			var src = el.src[0];

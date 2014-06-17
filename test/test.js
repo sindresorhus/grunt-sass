@@ -56,5 +56,13 @@ exports.sass = {
 		var map = grunt.file.read('test/tmp/source-map-simple.css.map');
 		test.ok(/test\.scss\"/.test(map), 'should include the main file in sourceMap at least');
 		test.done();
+	},
+	precision: function (test) {
+		test.expect(1);
+
+		var actual = grunt.file.read('test/tmp/precision.css');
+		test.ok(/1\.343/.test(actual), 'should support precision option');
+
+		test.done();
 	}
 };

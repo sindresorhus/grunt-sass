@@ -77,6 +77,14 @@ Default: `false`
 Set it to `true` to output a Source Map to the same location as the CSS *(output.css.map)*, or specify a path relative to the CSS file to where you want the Source Map.
 
 
+#### precision
+
+Type: `number`  
+Default: `10`
+
+Number of digits to preserve after the dot. With the number 1.23456789 and a precision of 3, the result will be 1.234 in the final CSS.
+
+
 ## License
 
 MIT © [Sindre Sorhus](http://sindresorhus.com)
