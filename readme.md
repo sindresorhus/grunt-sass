@@ -6,7 +6,7 @@
 
 *Issues with the output should be reported on the libsass [issue tracker](https://github.com/hcatlin/libsass/issues).*
 
-This task uses libsass which is an experimental Sass compiler in C++. In contrast to the original Ruby compiler, this one is much faster, but is missing some features, though improving quickly. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) if you prefer something more stable, but slower.
+This task uses [libsass](http://libsass.org) which is an experimental Sass compiler in C++. In contrast to the original Ruby compiler, this one is much faster, but is missing some features, though improving quickly. It also doesn't support Compass. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) if you prefer something more stable, but slower.
 
 
 ## Install
