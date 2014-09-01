@@ -19,17 +19,14 @@ $ npm install --save-dev grunt-sass
 ## Usage
 
 ```js
+require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
+
 grunt.initConfig({
-	sass: {									// task
-		dist: {								// target
-			files: {						// dictionary of files
-				'main.css': 'main.scss'		// 'destination': 'source'
-			}
+	sass: {
+		options: {
+			sourceMap: true
 		},
-		dev: {								// another target
-			options: {						// dictionary of render options
-				sourceMap: true
-			},
+		dist: {
 			files: {
 				'main.css': 'main.scss'
 			}
@@ -37,25 +34,22 @@ grunt.initConfig({
 	}
 });
 
-grunt.loadNpmTasks('grunt-sass');
 grunt.registerTask('default', ['sass']);
 ```
 
-
-## API
-
 Files starting with `_` are ignored to match the expected [Sass partial behaviour](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#partials).
 
-### Options
 
-#### includePaths
+## Options
+
+### includePaths
 
 Type: `array`  
 Default: `[]`
 
 Import paths to include.
 
-#### outputStyle
+### outputStyle
 
 Type: `string`  
 Default: `nested`  
@@ -63,13 +57,13 @@ Values: `'nested'`, `'compressed'`
 
 Specify the CSS output style.
 
-#### imagePath
+### imagePath
 
 Type: `string`
 
 Represents the public image path. When using the `image-url()` function in a stylesheet, this path will be prepended to the path you supply. Example: Given an `imagePath` of `/path/to/images`, `background-image: image-url('image.png')` will compile to `background-image: url("/path/to/images/image.png")`.
 
-#### sourceMap
+### sourceMap
 
 Type: `boolean`, `string`  
 Default: `false`
@@ -77,7 +71,7 @@ Default: `false`
 Set it to `true` to output a Source Map to the same location as the CSS *(output.css.map)*, or specify a path relative to the CSS file to where you want the Source Map.
 
 
-#### precision
+### precision
 
 Type: `number`  
 Default: `10`
