@@ -5,8 +5,8 @@ exports.sass = {
 	compile: function (test) {
 		test.expect(2);
 
-		var actual = grunt.file.read('test/tmp/compile.css');
-		var actual2 = grunt.file.read('test/tmp/compile2.css');
+		var actual = grunt.util.normalizelf(grunt.file.read('test/tmp/compile.css'));
+		var actual2 = grunt.util.normalizelf(grunt.file.read('test/tmp/compile2.css'));
 		var expected = grunt.file.read('test/expected/compile.css');
 		test.equal(actual, expected, 'should compile SCSS to CSS');
 		test.equal(actual2, expected, 'should compile SCSS to CSS');
@@ -16,7 +16,7 @@ exports.sass = {
 	includePaths: function (test) {
 		test.expect(1);
 
-		var actual = grunt.file.read('test/tmp/include-paths.css');
+		var actual = grunt.util.normalizelf(grunt.file.read('test/tmp/include-paths.css'));
 		var expected = grunt.file.read('test/expected/include-paths.css');
 		test.equal(actual, expected, 'should compile SCSS to CSS with options');
 
