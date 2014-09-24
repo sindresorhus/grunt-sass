@@ -1,7 +1,7 @@
 'use strict';
 var path = require('path');
 var eachAsync = require('each-async');
-var assign = require('object-assign');
+var deepExtend = require('deep-extend');
 var chalk = require('chalk');
 var sass = require('node-sass');
 
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 				grunt.file.write(el.dest, '');
 			}
 
-			sass.renderFile(assign({}, options, {
+			sass.renderFile(deepExtend({}, options, {
 				file: src,
 				outFile: el.dest,
 				success: function (css, map) {

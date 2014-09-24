@@ -31,9 +31,9 @@
   ],
   "dependencies": {
     "chalk": "^0.5.1",
+    "deep-extend": "^0.2.11",
     "each-async": "^1.0.0",
-    "node-sass": "0.9.3",
-    "object-assign": "^1.0.0"
+    "node-sass": "0.9.3"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
