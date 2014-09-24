@@ -36,8 +36,7 @@ module.exports = function (grunt) {
 					next();
 				},
 				error: function (error) {
-					grunt.warn(error);
-					next(error);
+					next(grunt.util.error(err));
 				}
 			}));
 		}, this.async());
