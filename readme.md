@@ -1,8 +1,8 @@
 # grunt-sass [![Build Status](https://travis-ci.org/sindresorhus/grunt-sass.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-sass)
 
-[<img src="https://rawgit.com/andrew/node-sass/master/media/logo.svg" width="200" align="right">](https://github.com/andrew/node-sass)
+[<img src="https://rawgit.com/sass/node-sass/master/media/logo.svg" width="200" align="right">](https://github.com/sass/node-sass)
 
-> Compile Sass to CSS using [node-sass](https://github.com/andrew/node-sass)
+> Compile Sass to CSS using [node-sass](https://github.com/sass/node-sass)
 
 *Issues with the output should be reported on the libsass [issue tracker](https://github.com/hcatlin/libsass/issues).*
 
