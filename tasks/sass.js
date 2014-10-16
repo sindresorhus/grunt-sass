@@ -7,11 +7,11 @@ var sass = require('node-sass');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
-		var options = this.options({
-			precision: 10
-		});
-
 		eachAsync(this.files, function (el, i, next) {
+			var options = this.options({
+				precision: 10
+			});
+
 			var src = el.src[0];
 
 			if (path.basename(src)[0] === '_') {
@@ -23,8 +23,9 @@ module.exports = function (grunt) {
 			}
 
 			sass.renderFile(assign({}, options, {
-				file: src,
-				outFile: el.dest,
+				// temp workaround for sass/node-sass#425
+				file: path.resolve(src),
+				outFile: path.resolve(el.dest),
 				success: function (css, map) {
 					grunt.log.writeln('File ' + chalk.cyan(el.dest) + ' created.');
 
@@ -40,6 +41,6 @@ module.exports = function (grunt) {
 					next(error);
 				}
 			}));
-		}, this.async());
+		}.bind(this), this.async());
 	});
 };
