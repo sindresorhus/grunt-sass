@@ -65,10 +65,10 @@ Represents the public image path. When using the `image-url()` function in a sty
 
 ### sourceMap
 
-Type: `boolean`, `string`  
+Type: `boolean`, `string`, `function`
 Default: `false`
 
-Set it to `true` to output a Source Map to the same location as the CSS *(output.css.map)*, or specify a path relative to the CSS file to where you want the Source Map.
+Set it to `true` to output a Source Map to the same location as the CSS *(output.css.map)*, or specify a path relative to the CSS file to where you want the Source Map. If the value is a function, it will be passed the destination path and should return a Source Map path relative to the destination.
 
 
 ### precision

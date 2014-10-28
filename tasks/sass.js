@@ -22,6 +22,10 @@ module.exports = function (grunt) {
 				grunt.file.write(el.dest, '');
 			}
 
+			if (typeof options.sourceMap === 'function') {
+				options.sourceMap = options.sourceMap(el.dest);
+			}
+
 			sass.renderFile(assign({}, options, {
 				// temp workaround for sass/node-sass#425
 				file: path.resolve(src),
