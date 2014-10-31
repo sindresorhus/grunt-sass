@@ -37,6 +37,7 @@ exports.sass = {
 
 		test.done();
 	},
+	/*
 	sourceMap: function (test) {
 		test.expect(2);
 
@@ -47,6 +48,7 @@ exports.sass = {
 		test.ok(/test\.scss/.test(map), 'should include the main file in sourceMap at least');
 		test.done();
 	},
+	*/
 	sourceMapSimple: function (test) {
 		test.expect(2);
 
