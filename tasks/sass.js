@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
 			var src = el.src[0];
 
-			if (path.basename(src)[0] === '_') {
+			if (!src || path.basename(src)[0] === '_') {
 				return next();
 			}
 
