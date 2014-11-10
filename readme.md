@@ -47,7 +47,7 @@ Files starting with `_` are ignored to match the expected [Sass partial behaviou
 Type: `array`  
 Default: `[]`
 
-Import paths to include.
+Additional paths to look for `@import`'ed files.
 
 ### outputStyle
 
