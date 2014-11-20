@@ -78,6 +78,12 @@ Default: `10`
 
 Number of digits to preserve after the dot. With the number 1.23456789 and a precision of 3, the result will be 1.234 in the final CSS.
 
+### silent
+
+Type: `boolean`
+Default: `false`
+
+Set it to `true` if you don't want to output when a file and source map has been created. 
 
 ## License
 
