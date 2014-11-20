@@ -27,11 +27,16 @@ module.exports = function (grunt) {
 				file: path.resolve(src),
 				outFile: path.resolve(el.dest),
 				success: function (css, map) {
-					grunt.log.writeln('File ' + chalk.cyan(el.dest) + ' created.');
+					if (!options.silent) {
+						grunt.log.writeln('File ' + chalk.cyan(el.dest) + ' created.');
+					}
 
 					if (options.sourceMap) {
 						var pth = options.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), map);
-						grunt.log.writeln('File ' + chalk.cyan(pth) + ' created.');
+
+						if (!options.silent) {
+							grunt.log.writeln('File ' + chalk.cyan(pth) + ' created.');
+						}
 					}
 
 					next();
