@@ -9,7 +9,8 @@ module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
 		eachAsync(this.files, function (el, i, next) {
 			var options = this.options({
-				precision: 10
+				precision: 10,
+				silent: false
 			});
 
 			var src = el.src[0];
