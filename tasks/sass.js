@@ -9,12 +9,13 @@ module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
 		eachAsync(this.files, function (el, i, next) {
 			var options = this.options({
-				precision: 10
+				precision: 10,
+				compilePartials: false
 			});
 
 			var src = el.src[0];
 
-			if (!src || path.basename(src)[0] === '_') {
+			if (!src || !options.compilePartials && '_' === path.basename(src)[0]) {
 				return next();
 			}
 

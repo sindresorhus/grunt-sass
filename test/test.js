@@ -37,6 +37,14 @@ exports.sass = {
 
 		test.done();
 	},
+	compilePartials: function (test) {
+		test.expect(1);
+
+		test.ok(grunt.file.exists('test/tmp/compiled-partial.css'),
+				'underscore partial files should not be ignored with {compilePartials: true}');
+
+		test.done();
+	},
 	/*
 	sourceMap: function (test) {
 		test.expect(2);
