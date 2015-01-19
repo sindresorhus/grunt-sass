@@ -38,7 +38,7 @@ grunt.registerTask('default', ['sass']);
 ```
 
 Files starting with `_` are ignored to match the expected [Sass partial behaviour](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#partials).
-
+Set the `compilePartials` option to `true` to override this.
 
 ## Options
 
@@ -78,6 +78,12 @@ Default: `10`
 
 Number of digits to preserve after the dot. With the number 1.23456789 and a precision of 3, the result will be 1.234 in the final CSS.
 
+### compilePartials
+
+Type: `boolean`
+Default: false
+
+Set it to `true` to compile the partials.
 
 ## License
 

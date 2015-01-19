@@ -31,6 +31,15 @@ module.exports = function (grunt) {
 				expand: true,
 				ext: '.css'
 			},
+			compilePartials: {
+				options: {
+					sourceMap: false,
+					compilePartials: true
+				},
+				files: {
+					'test/tmp/compiled-partial.css': 'test/fixtures/partials/_partial.scss'
+				}
+			},
 			sourceMap: {
 				options: {
 					sourceMap: 'source-map.css.map'
