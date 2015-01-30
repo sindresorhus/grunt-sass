@@ -4,6 +4,8 @@
 
 > Compile Sass to CSS using [node-sass](https://github.com/sass/node-sass)
 
+**Issue tracker is temporarily disabled because of user abuse and lazyness. Any issue is most likely with [node-sass](https://github.com/sass/node-sass/issues). Node-sass 2.0 will be used when the final version is out.**
+
 *Issues with the output should be reported on the libsass [issue tracker](https://github.com/hcatlin/libsass/issues).*
 
 This task uses [libsass](http://libsass.org) which is a Sass compiler in C++. In contrast to the original Ruby compiler, this one is much faster, but is [missing some features](http://sass-compatibility.github.io/), though improving quickly. It also doesn't support Compass. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) if you prefer something more stable, but slower.
