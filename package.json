@@ -32,7 +32,7 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "each-async": "^1.0.0",
-    "node-sass": "1.2.3",
+    "node-sass": "2.0.0-beta",
     "object-assign": "^2.0.0"
   },
   "devDependencies": {

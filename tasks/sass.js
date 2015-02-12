@@ -18,15 +18,11 @@ module.exports = function (grunt) {
 				return next();
 			}
 
-			if (!grunt.file.exists(el.dest)) {
-				grunt.file.write(el.dest, '');
-			}
-
-			sass.renderFile(assign({}, options, {
-				// temp workaround for sass/node-sass#425
+			sass.render(assign({}, options, {
 				file: path.resolve(src),
 				outFile: path.resolve(el.dest),
-				success: function (css, map) {
+				success: function(results) {
+					grunt.file.write(el.dest, results.css);
 					grunt.verbose.writeln('File ' + chalk.cyan(el.dest) + ' created.');
 
 					if (options.sourceMap) {
@@ -37,8 +33,8 @@ module.exports = function (grunt) {
 					next();
 				},
 				error: function (error) {
-					grunt.warn(error);
-					next(error);
+					grunt.warn(error.message);
+					next(error.message);
 				}
 			}));
 		}.bind(this), this.async());
