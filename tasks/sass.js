@@ -8,7 +8,7 @@ var sass = require('node-sass');
 module.exports = function (grunt) {
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
 		eachAsync(this.files, function (el, i, next) {
-			var options = this.options({
+			var opts = this.options({
 				precision: 10
 			});
 
@@ -18,23 +18,24 @@ module.exports = function (grunt) {
 				return next();
 			}
 
-			sass.render(assign({}, options, {
+			sass.render(assign({}, opts, {
+				// `path.resolve` works around some stupid node-sass issue
 				file: path.resolve(src),
-				outFile: path.resolve(el.dest),
-				success: function(results) {
-					grunt.file.write(el.dest, results.css);
-					grunt.verbose.writeln('File ' + chalk.cyan(el.dest) + ' created.');
+				outFile: el.dest,
+				success: function (res) {
+					grunt.file.write(el.dest, res.css);
+					grunt.verbose.writeln('File ' + chalk.cyan(el.dest) + ' created');
 
-					if (options.sourceMap) {
-						var pth = options.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), map);
-						grunt.verbose.writeln('File ' + chalk.cyan(pth) + ' created.');
+					if (res.map) {
+						var pth = opts.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), res.map);
+						grunt.verbose.writeln('File ' + chalk.cyan(pth) + ' created');
 					}
 
 					next();
 				},
-				error: function (error) {
-					grunt.warn(error.message);
-					next(error.message);
+				error: function (err) {
+					grunt.warn(err.message);
+					next(err);
 				}
 			}));
 		}.bind(this), this.async());
