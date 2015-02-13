@@ -2,39 +2,40 @@
 var path = require('path');
 var eachAsync = require('each-async');
 var assign = require('object-assign');
-var chalk = require('chalk');
 var sass = require('node-sass');
 
 module.exports = function (grunt) {
+	grunt.verbose.writeln('\n' + sass.info() + '\n');
+
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
 		eachAsync(this.files, function (el, i, next) {
-			var options = this.options({
+			var opts = this.options({
 				precision: 10
 			});
 
 			var src = el.src[0];
 
 			if (!src || path.basename(src)[0] === '_') {
-				return next();
+				next();
+				return;
 			}
 
-			sass.render(assign({}, options, {
-				file: path.resolve(src),
-				outFile: path.resolve(el.dest),
-				success: function(results) {
-					grunt.file.write(el.dest, results.css);
-					grunt.verbose.writeln('File ' + chalk.cyan(el.dest) + ' created.');
+			sass.render(assign({}, opts, {
+				file: src,
+				outFile: el.dest,
+				success: function (res) {
+					grunt.file.write(el.dest, res.css);
 
-					if (options.sourceMap) {
-						var pth = options.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), map);
-						grunt.verbose.writeln('File ' + chalk.cyan(pth) + ' created.');
+					if (opts.sourceMap) {
+						grunt.file.write(opts.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), opts.sourceMap), res.map);
 					}
 
 					next();
 				},
-				error: function (error) {
-					grunt.warn(error.message);
-					next(error.message);
+				error: function (err) {
+					grunt.log.error(err.message + '\n  ' + 'Line ' + err.line + '  Column ' + err.column + '  ' + path.relative(process.cwd(), err.file) + '\n');
+					grunt.warn('');
+					next(err);
 				}
 			}));
 		}.bind(this), this.async());

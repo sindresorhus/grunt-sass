@@ -33,7 +33,7 @@ module.exports = function (grunt) {
 			},
 			sourceMap: {
 				options: {
-					sourceMap: 'source-map.css.map'
+					sourceMap: 'test/tmp/source-map.css.map'
 				},
 				files: {
 					'test/tmp/source-map.css': 'test/fixtures/test.scss'

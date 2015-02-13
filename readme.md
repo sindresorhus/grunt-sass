@@ -4,8 +4,6 @@
 
 > Compile Sass to CSS using [node-sass](https://github.com/sass/node-sass)
 
-**Issue tracker is temporarily disabled because of user abuse and lazyness. Any issue is most likely with [node-sass](https://github.com/sass/node-sass/issues). Node-sass 2.0 will be used when the final version is out.**
-
 *Issues with the output should be reported on the libsass [issue tracker](https://github.com/hcatlin/libsass/issues).*
 
 This task uses [libsass](http://libsass.org) which is a Sass compiler in C++. In contrast to the original Ruby compiler, this one is much faster, but is [missing some features](http://sass-compatibility.github.io/), though improving quickly. It also doesn't support Compass. Check out [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) if you prefer something more stable, but slower.
@@ -13,7 +11,7 @@ This task uses [libsass](http://libsass.org) which is a Sass compiler in C++. In
 
 ## Install
 
-```sh
+```
 $ npm install --save-dev grunt-sass
 ```
 
@@ -44,41 +42,9 @@ Files starting with `_` are ignored to match the expected [Sass partial behaviou
 
 ## Options
 
-### includePaths
+See the `node-sass` [options](https://github.com/sass/node-sass#options), except for `file`, `outFile`, `success`, `error`.
 
-Type: `array`  
-Default: `[]`
-
-Additional paths to look for `@import`'ed files.
-
-### outputStyle
-
-Type: `string`  
-Default: `nested`  
-Values: `'nested'`, `'compressed'`
-
-Specify the CSS output style.
-
-### imagePath
-
-Type: `string`
-
-Represents the public image path. When using the `image-url()` function in a stylesheet, this path will be prepended to the path you supply. Example: Given an `imagePath` of `/path/to/images`, `background-image: image-url('image.png')` will compile to `background-image: url("/path/to/images/image.png")`.
-
-### sourceMap
-
-Type: `boolean`, `string`  
-Default: `false`
-
-Set it to `true` to output a Source Map to the same location as the CSS *(output.css.map)*, or specify a path relative to the CSS file to where you want the Source Map.
-
-
-### precision
-
-Type: `number`  
-Default: `10`
-
-Number of digits to preserve after the dot. With the number 1.23456789 and a precision of 3, the result will be 1.234 in the final CSS.
+The default value for the `precision` option is `10`, so you don't have to change it when using Bootstrap.
 
 
 ## License
