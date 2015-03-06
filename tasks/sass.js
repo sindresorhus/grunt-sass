@@ -26,7 +26,7 @@ module.exports = function (grunt) {
 				success: function (res) {
 					grunt.file.write(el.dest, res.css);
 
-					if (opts.sourceMap) {
+					if (opts.sourceMap && !opts.sourceMapEmbed) {
 						grunt.file.write(opts.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), opts.sourceMap), res.map);
 					}
 
