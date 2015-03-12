@@ -25,6 +25,7 @@ module.exports = function (grunt) {
 				outFile: el.dest,
 				success: function (res) {
 					grunt.file.write(el.dest, res.css);
+					grunt.log.writeln('Writing %s (sourced from %s)', el.dest, src);
 
 					if (opts.sourceMap && !opts.sourceMapEmbed) {
 						grunt.file.write(opts.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), opts.sourceMap), res.map);
