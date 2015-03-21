@@ -33,7 +33,13 @@ module.exports = function (grunt) {
 					next();
 				},
 				error: function (err) {
-					grunt.log.error(err.message + '\n  ' + 'Line ' + err.line + '  Column ' + err.column + '  ' + path.relative(process.cwd(), err.file) + '\n');
+					if (err.file) {
+				        	grunt.log.error(err.message + '\n  ' + 'Line ' + err.line + '  Column ' + err.column + '  ' + path.relative(process.cwd(), err.file) + '\n');
+					}
+					else {
+						grunt.log.error(err.message + '\n');
+					}
+					
 					grunt.warn('');
 					next(err);
 				}
