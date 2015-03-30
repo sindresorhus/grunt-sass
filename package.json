@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "each-async": "^1.0.0",
-    "node-sass": "^2.0.1",
+    "node-sass": "^3.0.0-",
     "object-assign": "^2.0.0"
   },
   "devDependencies": {
