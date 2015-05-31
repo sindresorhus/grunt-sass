@@ -21,7 +21,7 @@ module.exports = function (grunt) {
 			}
 			
 			if (grunt.util.kindOf(opts.sourceMap) === 'string' && opts.sourceMap.match(/[\/\\]$/)) {
-				opts.sourceMap = opts.sourceMap + path.basename(el.dest) + '.map';
+				opts.sourceMap = path.normalize(opts.sourceMap + path.basename(el.dest) + '.map');
 			}
 
 			sass.render(assign({}, opts, {
