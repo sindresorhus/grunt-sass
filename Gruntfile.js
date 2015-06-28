@@ -8,6 +8,19 @@ module.exports = function (grunt) {
 					'test/tmp/compile2.css': 'test/fixtures/test.scss'
 				}
 			},
+			compileDir: {
+				options: {
+					sourceMap: true
+				},
+				files : {
+					'test/tmp/directory': 'test/fixtures/directory'
+				}
+			},
+			compileEmptyDir: {
+				files : {
+					'test/tmp': 'test/fixtures/empty-directory'
+				}
+			},
 			includePaths: {
 				options: {
 					includePaths: ['test/fixtures']

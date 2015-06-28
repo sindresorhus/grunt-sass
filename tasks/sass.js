@@ -24,8 +24,7 @@ module.exports = function (grunt) {
 		return options.recursive ? '**/*.{sass,scss}' : '*.{sass,scss}';
 	}
 
-	function renderDir(options, next) {
-
+	function renderDir(options, renderDirNext) {
 		var sassDir = path.resolve(options.directory);
 		var globPath = path.resolve(options.directory, globPattern({recursive: true}));
 		var cssDir = path.resolve(options.dest);
@@ -34,24 +33,19 @@ module.exports = function (grunt) {
 			if (err) {
 				throw util.format('You do not have permission to access this path: %s.', err.path);
 			} else if (!files.length) {
-				throw 'No input file was found.';
+				grunt.log.writeln(util.format('No sass file(s) found for path %s', options.directory));
+				renderDirNext();
+				return;
 			}
 
 			eachAsync(files, function (file, i, next) {
-				console.log(file);
-
 				var fileName = path.relative(sassDir, file);
-
 				var outFile = options.dest = path.join(cssDir, fileName).replace(path.extname(fileName), '.css');
-
-				console.log({sassDir: sassDir, fileName: fileName, cssDir: cssDir, outFile: outFile});
-
 				renderFile(assign({}, options, {
 					file: file,
 					outFile: outFile
 				}), next);
-
-			});
+			}, renderDirNext);
 		});
 	}
 
@@ -63,7 +57,7 @@ module.exports = function (grunt) {
 				next(err);
 				return;
 			}
-			grunt.file.write(el.dest, res.css);
+			grunt.file.write(options.outFile, res.css);
 			if (options.sourceMap) {
 				grunt.file.write(this.options.sourceMap, res.map);
 			}
@@ -71,14 +65,11 @@ module.exports = function (grunt) {
 		});
 	}
 
-	grunt.verbose.writeln('\n' + sass.info + '\n');
-
-	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
+	function compileSass() {
 		eachAsync(this.files, function (el, i, next) {
 			var opts = this.options({
 				precision: 10
 			});
-
 
 			var src = el.src[0];
 
@@ -97,8 +88,9 @@ module.exports = function (grunt) {
 					outFile: el.dest
 				}), next);
 			}
-
-
 		}.bind(this), this.async());
-	});
+	}
+
+	grunt.verbose.writeln('\n' + sass.info + '\n');
+	grunt.registerMultiTask('sass', 'Compile Sass to CSS', compileSass);
 };
