@@ -39,6 +39,18 @@ grunt.registerTask('default', ['sass']);
 
 Files starting with `_` are ignored to match the expected [Sass partial behaviour](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#partials).
 
+You can also configure grunt-sass to compile all sass/css files in a directory and its subdirectories. 
+```js
+grunt.initConfig({
+	sass: {
+		dist: {
+			files: {
+				'dist/css': 'src/stylesheets'
+			}
+		}
+	}
+});
+```
 
 ## Options
 

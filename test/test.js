@@ -13,6 +13,37 @@ exports.sass = {
 
 		test.done();
 	},
+	compileDir: function (test) {
+		test.expect(2);
+
+		var actual = grunt.file.read('test/tmp/directory/compile-dir.css').replace(/[\n\r]\/\*# sourceMappingURL.*/im, '');
+		var actual2 = grunt.file.read('test/tmp/directory/compile-dir2.css').replace(/[\n\r]\/\*# sourceMappingURL.*/im, '');
+		var expected = grunt.file.read('test/expected/directory/compile-dir.css');
+		var expected2 = grunt.file.read('test/expected/directory/compile-dir2.css');
+		test.equal(actual2, expected2, 'should compile all SCSS files in a directory to CSS');
+		test.equal(actual, expected, 'should compile all SCSS files in a directory to CSS');
+
+		test.done();
+	},
+	compileDirSourceMap: function (test) {
+		test.expect(2);
+
+		var css = grunt.file.read('test/tmp/directory/compile-dir.css');
+		test.ok(/\/\*\# sourceMappingURL\=compile\-dir\.css\.map/.test(css), 'should include sourceMapppingUrl');
+
+		var map = grunt.file.read('test/tmp/directory/compile-dir.css.map');
+		test.ok(/compile\-dir\.scss/.test(map), 'should include the main file in sourceMap at least');
+		test.done();
+	},
+	compileSubDir: function (test) {
+		test.expect(1);
+
+		var actual = grunt.file.read('test/tmp/directory/foo/bar.css').replace(/[\n\r]\/\*# sourceMappingURL.*/im, '');
+		var expected = grunt.file.read('test/expected/directory/foo/bar.css');
+		test.equal(actual, expected, 'should compile all SCSS files in a sub-directory to CSS');
+
+		test.done();
+	},
 	includePaths: function (test) {
 		test.expect(1);
 
