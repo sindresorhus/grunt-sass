@@ -5,10 +5,15 @@ var assign = require('object-assign');
 var sass = require('node-sass');
 
 module.exports = function (grunt) {
+
 	grunt.verbose.writeln('\n' + sass.info + '\n');
 
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
-		eachAsync(this.files, function (el, i, next) {
+
+    var done = this.async();
+    var counter = 0;
+
+    eachAsync(this.files, function (el, i, next) {
 			var opts = this.options({
 				precision: 10
 			});
@@ -19,8 +24,6 @@ module.exports = function (grunt) {
 				next();
 				return;
 			}
-
-			grunt.log.writeln('Processing ' + src);
 
 			sass.render(assign({}, opts, {
 				file: src,
@@ -34,6 +37,7 @@ module.exports = function (grunt) {
 				}
 
 				grunt.file.write(el.dest, res.css);
+        counter++;
 
 				if (opts.sourceMap) {
 					grunt.file.write(this.options.sourceMap, res.map);
@@ -41,6 +45,10 @@ module.exports = function (grunt) {
 
 				next();
 			});
-		}.bind(this), this.async());
+		}.bind(this), function(err) {
+          grunt.log.writeln(counter === 1 ? counter + ' stylesheet processed.' : counter + ' stylesheets processed.');
+          done(err);
+        }
+      );
 	});
 };
