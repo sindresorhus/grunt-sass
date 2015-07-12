@@ -20,6 +20,8 @@ module.exports = function (grunt) {
 				return;
 			}
 
+			grunt.log.writeln('Processing ' + src);
+
 			sass.render(assign({}, opts, {
 				file: src,
 				outFile: el.dest
