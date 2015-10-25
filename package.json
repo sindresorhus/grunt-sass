@@ -31,8 +31,8 @@
   ],
   "dependencies": {
     "each-async": "^1.0.0",
-    "node-sass": "^3.4.0-beta1",
-    "object-assign": "^2.0.0"
+    "node-sass": "^3.4.0",
+    "object-assign": "^4.0.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
