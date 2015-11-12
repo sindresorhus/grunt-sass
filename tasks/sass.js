@@ -1,6 +1,6 @@
 'use strict';
 var path = require('path');
-var eachAsync = require('each-async');
+var async = require('async');
 var assign = require('object-assign');
 var sass = require('node-sass');
 
@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 	grunt.verbose.writeln('\n' + sass.info + '\n');
 
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
-		eachAsync(this.files, function (el, i, next) {
+		async.eachSeries(this.files, function (el, next) {
 			var opts = this.options({
 				precision: 10
 			});
@@ -16,7 +16,9 @@ module.exports = function (grunt) {
 			var src = el.src[0];
 
 			if (!src || path.basename(src)[0] === '_') {
-				next();
+				async.setImmediate(function () {
+					next();
+				});
 				return;
 			}
 
@@ -27,7 +29,9 @@ module.exports = function (grunt) {
 				if (err) {
 					grunt.log.error(err.formatted + '\n');
 					grunt.warn('');
-					next(err);
+					async.setImmediate(function () {
+						next(err);
+					});
 					return;
 				}
 
@@ -37,7 +41,9 @@ module.exports = function (grunt) {
 					grunt.file.write(this.options.sourceMap, res.map);
 				}
 
-				next();
+				async.setImmediate(function () {
+					next();
+				});
 			});
 		}.bind(this), this.async());
 	});
