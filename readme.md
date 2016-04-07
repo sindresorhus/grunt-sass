@@ -6,7 +6,7 @@
 
 *The issue tracker is disabled because of continuous abuse. Use [Stack Overflow](https://stackoverflow.com/questions/tagged/node-sass) for support questions. Issues with the output should be reported on the libsass [issue tracker](https://github.com/hcatlin/libsass/issues). Install issues should be reported on the node-sass [issue tracker](https://github.com/sass/node-sass/issues). Learn how [semver works](https://nodesource.com/blog/semver-tilde-and-caret) before opening a PR updating node-sass.*
 
-This task uses [libsass](http://libsass.org), which is a Sass compiler in C++. It's a lot faster than the original Ruby compiler and [fully compatible](http://sass-compatibility.github.io/). 
+This task uses [libsass](http://libsass.org), which is a Sass compiler in C++. It's a lot faster than the original Ruby compiler and [fully compatible](http://sass-compatibility.github.io/).
 
 
 ## Install
@@ -49,4 +49,4 @@ The default value for the `precision` option is `10`, so you don't have to chang
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
