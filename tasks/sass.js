@@ -25,15 +25,17 @@ module.exports = function (grunt) {
 				outFile: el.dest
 			}), function (err, res) {
 				if (err) {
-					grunt.log.error(err.formatted + '\n');
+					grunt.log.error(err.formatted, '\n');
 					grunt.warn('');
 					next(err);
 					return;
 				}
 
-				grunt.file.write(el.dest, res.css);
+				if (shouldWrite(el.dest, res.css)) {
+					grunt.file.write(el.dest, res.css);
+				}
 
-				if (opts.sourceMap) {
+				if (opts.sourceMap && shouldWrite(this.options.sourceMap, res.map)) {
 					grunt.file.write(this.options.sourceMap, res.map);
 				}
 
@@ -41,4 +43,8 @@ module.exports = function (grunt) {
 			});
 		}.bind(this), this.async());
 	});
+
+	function shouldWrite(dest, contents) {
+		return !grunt.file.exists(dest) || grunt.file.read(dest) !== contents;
+	}
 };
