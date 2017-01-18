@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 				outFile: el.dest
 			}), function (err, res) {
 				if (err) {
-					grunt.log.error(err.formatted + '\n');
+					grunt.log.error(err.formatted + '\n' + 'Source file: ' + src + '\n');
 					grunt.warn('');
 					next(err);
 					return;
