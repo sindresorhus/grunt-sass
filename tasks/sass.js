@@ -32,6 +32,7 @@ module.exports = function (grunt) {
 				}
 
 				grunt.file.write(el.dest, res.css);
+				grunt.log.writeln("Writting " + el.dest);
 
 				if (opts.sourceMap) {
 					grunt.file.write(this.options.sourceMap, res.map);
