@@ -25,6 +25,7 @@ $ npm install --save-dev grunt-sass
 ## Usage
 
 ```js
+var grunt = require('grunt');
 require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
 
 grunt.initConfig({
