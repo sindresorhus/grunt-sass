@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 				file: src,
 				outFile: el.dest
 			}), function (err, res) {
-				if (err) {
+				if (err && opts.quiet !== true) {
 					grunt.log.error(err.formatted + '\n');
 					grunt.warn('');
 					next(err);
