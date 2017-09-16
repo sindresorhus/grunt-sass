@@ -33,6 +33,11 @@ module.exports = function (grunt) {
 
 				grunt.file.write(el.dest, res.css);
 
+				if (opts.successLog) {
+					grunt.log.writeln('Write '.green + (el.dest).green);
+					grunt.log.writeln('Total duration: '.yellow + (res.stats.duration + 'ms!').yellow);
+				}
+
 				if (opts.sourceMap) {
 					grunt.file.write(this.options.sourceMap, res.map);
 				}
