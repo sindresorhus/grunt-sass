@@ -52,6 +52,12 @@ See the `node-sass` [options](https://github.com/sass/node-sass#options), except
 
 The default value for the `precision` option is `10`, so you don't have to change it when using Bootstrap.
 
+Set `successLog` to `true` to print the CSS file being created and total duration taken in ms!
+
+```
+$ Write ./path/to/file.css
+$ Total duration 7ms!
+```
 
 ## License
 
