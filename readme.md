@@ -40,6 +40,8 @@ grunt.initConfig({
 	}
 });
 
+grunt.loadNpmTasks('grunt-sass');
+
 grunt.registerTask('default', ['sass']);
 ```
 
