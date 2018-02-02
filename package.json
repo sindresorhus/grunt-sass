@@ -1,6 +1,6 @@
 {
   "name": "grunt-sass",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Compile Sass to CSS using node-sass",
   "license": "MIT",
   "repository": "sindresorhus/grunt-sass",
@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "each-async": "^1.0.0",
-    "node-sass": "^4.0.0",
+    "node-sass": "^4.7.2",
     "object-assign": "^4.0.1"
   },
   "devDependencies": {
