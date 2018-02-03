@@ -1,44 +1,38 @@
 'use strict';
-var path = require('path');
-var eachAsync = require('each-async');
-var assign = require('object-assign');
-var sass = require('node-sass');
+const util = require('util');
+const path = require('path');
+const sass = require('node-sass');
 
-module.exports = function (grunt) {
-	grunt.verbose.writeln('\n' + sass.info + '\n');
+module.exports = grunt => {
+	grunt.verbose.writeln(`\n${sass.info}\n`);
 
-	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
-		eachAsync(this.files, function (el, i, next) {
-			var opts = this.options({
-				precision: 10
-			});
+	grunt.registerMultiTask('sass', 'Compile Sass to CSS', async function () {
+		const done = this.async();
 
-			var src = el.src[0];
+		const options = this.options({
+			precision: 10
+		});
+
+		await Promise.all(this.files.map(async item => {
+			const src = item.src[0];
 
 			if (!src || path.basename(src)[0] === '_') {
-				next();
 				return;
 			}
 
-			sass.render(assign({}, opts, {
+			const result = await util.promisify(sass.render)(Object.assign({}, options, {
 				file: src,
-				outFile: el.dest
-			}), function (err, res) {
-				if (err) {
-					grunt.log.error(err.formatted + '\n');
-					grunt.warn('');
-					next(err);
-					return;
-				}
+				outFile: item.dest
+			}));
 
-				grunt.file.write(el.dest, res.css);
+			grunt.file.write(item.dest, result.css);
 
-				if (opts.sourceMap) {
-					grunt.file.write(this.options.sourceMap, res.map);
-				}
+			if (options.sourceMap) {
+				const filePath = options.sourceMap === true ? `${item.dest}.map` : options.sourceMap;
+				grunt.file.write(filePath, result.map);
+			}
+		}));
 
-				next();
-			});
-		}.bind(this), this.async());
+		done();
 	});
 };
