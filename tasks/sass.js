@@ -14,7 +14,7 @@ module.exports = grunt => {
 		});
 
 		await Promise.all(this.files.map(async item => {
-			const src = item.src[0];
+			const [src] = item.src;
 
 			if (!src || path.basename(src)[0] === '_') {
 				return;
