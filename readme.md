@@ -8,12 +8,6 @@
 
 This task uses [libsass](http://libsass.org), which is a Sass compiler in C++. It's a lot faster than the original Ruby compiler and [fully compatible](http://sass-compatibility.github.io/).
 
----
-
-<p align="center"><b>🔥 Want to strengthen your core JavaScript skills and master ES6?</b><br>I would personally recommend this awesome <a href="https://ES6.io/friend/AWESOME">ES6 course</a> by Wes Bos.</p>
-
----
-
 
 ## Install
 
@@ -21,11 +15,15 @@ This task uses [libsass](http://libsass.org), which is a Sass compiler in C++. I
 $ npm install --save-dev grunt-sass
 ```
 
+<a href="https://www.patreon.com/sindresorhus">
+	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+
 
 ## Usage
 
 ```js
-require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
+require('load-grunt-tasks')(grunt);
 
 grunt.initConfig({
 	sass: {

@@ -1,4 +1,1 @@
-* text=auto
-*.js text eol=lf
-*.css text eol=lf
-*.map text eol=lf
+* text=auto eol=lf
