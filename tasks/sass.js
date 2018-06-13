@@ -20,7 +20,8 @@ module.exports = grunt => {
 				return;
 			}
 
-			const result = await util.promisify(sass.render)(Object.assign({}, options, {
+			const implementation = options.implementation || sass;
+			const result = await util.promisify(implementation.render)(Object.assign({}, options, {
 				file: src,
 				outFile: item.dest
 			}));
