@@ -60,8 +60,8 @@ You can choose whether to use [Dart Sass][] or [Node Sass][] by passing the `imp
 
 Note that when using Dart Sass, **synchronous compilation is twice as fast as asynchronous compilation** by default, due to the overhead of asynchronous callbacks. To avoid this overhead, you can use the [`fibers`](https://www.npmjs.com/package/fibers) package to call asynchronous importers from the synchronous code path. To enable this, pass the `Fiber` class to the `fiber` option:
 
-```javascript
-const Fiber = require(fibers);
+```js
+const Fiber = require('fibers');
 const sass = require('node-sass');
 
 require('load-grunt-tasks')(grunt);
