@@ -1,7 +1,12 @@
 'use strict';
+const sass = require('node-sass');
+
 module.exports = grunt => {
 	grunt.initConfig({
 		sass: {
+			options: {
+				implementation: sass
+			},
 			compile: {
 				files: {
 					'test/tmp/compile.css': 'test/fixtures/test.scss',

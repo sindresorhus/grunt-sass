@@ -56,7 +56,7 @@ grunt.initConfig({
 grunt.registerTask('default', ['sass']);
 ```
 
-You can choose whether to use [Dart Sass][] or [Node Sass][] by passing the `implementation` option. Node Sass will be used by default, but it's strongly recommended that you pass it explicitly for forwards-compatibility in case the default ever changes.
+You can choose whether to use [Dart Sass][] or [Node Sass][] by passing the module to the `implementation` option. One implementation or the other *must* be passed.
 
 Note that when using Dart Sass, **synchronous compilation is twice as fast as asynchronous compilation** by default, due to the overhead of asynchronous callbacks. To avoid this overhead, you can use the [`fibers`](https://www.npmjs.com/package/fibers) package to call asynchronous importers from the synchronous code path. To enable this, pass the `Fiber` class to the `fiber` option:
 

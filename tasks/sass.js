@@ -1,17 +1,19 @@
 'use strict';
 const util = require('util');
 const path = require('path');
-const sass = require('node-sass');
 
 module.exports = grunt => {
-	grunt.verbose.writeln(`\n${sass.info}\n`);
-
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', async function () {
 		const done = this.async();
 
 		const options = this.options({
 			precision: 10
 		});
+
+		if (!options.implementation) {
+			grunt.fatal('The implementation option must be passed to the Sass task.');
+		}
+		grunt.verbose.writeln(`\n${options.implementation.info}\n`);
 
 		await Promise.all(this.files.map(async item => {
 			const [src] = item.src;
@@ -20,8 +22,7 @@ module.exports = grunt => {
 				return;
 			}
 
-			const implementation = options.implementation || sass;
-			const result = await util.promisify(implementation.render)(Object.assign({}, options, {
+			const result = await util.promisify(options.implementation.render)(Object.assign({}, options, {
 				file: src,
 				outFile: item.dest
 			}));

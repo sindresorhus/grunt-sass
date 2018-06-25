@@ -28,14 +28,12 @@
 		"preprocess",
 		"libsass"
 	],
-	"dependencies": {
-		"node-sass": "^4.7.2"
-	},
 	"devDependencies": {
 		"grunt": "^1.0.1",
 		"grunt-cli": "^1.2.0",
 		"grunt-contrib-clean": "^1.0.0",
 		"grunt-contrib-nodeunit": "^1.0.0",
+		"node-sass": "^4.7.2",
 		"xo": "*"
 	},
 	"peerDependencies": {
