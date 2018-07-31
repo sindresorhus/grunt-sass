@@ -37,8 +37,8 @@ module.exports = grunt => {
 			}));
 
 			done();
-    })().catch((err) => {
-      grunt.fatal(`${err.message}\n${err.file} (${err.line}:${err.column})`);
-    });
+		})().catch(err => {
+			grunt.fatal(`${err.message}\n${err.file} (${err.line}:${err.column})`);
+		});
 	});
 };
