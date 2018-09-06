@@ -33,7 +33,7 @@
 		"grunt-cli": "^1.2.0",
 		"grunt-contrib-clean": "^1.0.0",
 		"grunt-contrib-nodeunit": "^1.0.0",
-		"node-sass": "^4.7.2",
+		"node-sass": "^4.9.3",
 		"xo": "*"
 	},
 	"peerDependencies": {
