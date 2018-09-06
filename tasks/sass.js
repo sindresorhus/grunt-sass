@@ -23,10 +23,11 @@ module.exports = grunt => {
 					return;
 				}
 
-				const result = await util.promisify(options.implementation.render)(Object.assign({}, options, {
+				const result = await util.promisify(options.implementation.render)({
+					...options,
 					file: src,
 					outFile: item.dest
-				}));
+				});
 
 				grunt.file.write(item.dest, result.css);
 
