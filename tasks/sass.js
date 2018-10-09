@@ -1,3 +1,4 @@
+/* eslint-disable prefer-object-spread, promise/prefer-await-to-then */
 'use strict';
 const util = require('util');
 const path = require('path');
