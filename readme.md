@@ -34,6 +34,8 @@ $ npm install --save-dev node-sass grunt-sass
 
 ## Usage
 
+Without globbing folders:
+
 ```js
 const sass = require('node-sass');
 
@@ -51,6 +53,36 @@ grunt.initConfig({
 			}
 		}
 	}
+});
+
+grunt.registerTask('default', ['sass']);
+```
+
+Globbing folders:
+
+```js
+const sass = require('node-sass');
+
+require('load-grunt-tasks')(grunt);
+
+grunt.initConfig({
+  sass: {
+    compile: {
+      options: {
+        implementation: sass,
+        sourceMap: true,
+        outputStyle: "expanded"
+      },
+      files: [{
+        expand: true,         // Enable dynamic expansion.
+        cwd: 'src/scss/',     // Src matches are relative to this path.
+        src: ['**/*.scss'],   // Actual pattern(s) to match.
+        dest: 'css/',         // Destination path prefix.
+        ext: '.css',          // Dest filepaths will have this extension.
+        extDot: 'first'       // Extensions in filenames begin after the first dot
+      }]
+    }
+  }
 });
 
 grunt.registerTask('default', ['sass']);
