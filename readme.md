@@ -47,7 +47,7 @@ grunt.initConfig({
 		},
 		dist: {
 			files: {
-				'main.css': 'main.scss'
+				'output/path/main.css': 'input/path/main.scss'
 			}
 		}
 	}
@@ -75,7 +75,7 @@ grunt.initConfig({
 		},
 		dist: {
 			files: {
-				'main.css': 'main.scss'
+				'output/path/main.css': 'input/path/main.scss'
 			}
 		}
 	}
