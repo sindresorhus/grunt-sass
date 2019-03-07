@@ -8,6 +8,7 @@ module.exports = grunt => {
 		const done = this.async();
 
 		const options = this.options({
+			noFail: false,
 			precision: 10
 		});
 
@@ -36,6 +37,12 @@ module.exports = grunt => {
 					grunt.file.write(filePath, result.map);
 				}
 			}));
-		})().catch(grunt.fatal).then(done);
+		})().catch(error => {
+			if (options.noFail) {
+				grunt.log.error(error);
+			} else {
+				grunt.fatal(error);
+			}
+		}).then(done);
 	});
 };
