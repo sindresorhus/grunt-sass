@@ -27,10 +27,6 @@ Before filing an issue with this repository, please consider:
 $ npm install --save-dev node-sass grunt-sass
 ```
 
-<a href="https://www.patreon.com/sindresorhus">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
-
 
 ## Usage
 
@@ -92,8 +88,3 @@ Files starting with `_` are ignored to match the expected [Sass partial behaviou
 See the Node Sass [options](https://github.com/sass/node-sass#options), except for `file`, `outFile`, `success`, `error`.
 
 The default value for the `precision` option is `10`, so you don't have to change it when using Bootstrap.
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
