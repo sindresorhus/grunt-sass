@@ -37,7 +37,7 @@ module.exports = grunt => {
 				}
 			}));
 		})().catch(error => {
-			grunt.fatal(error.formatted);
+			grunt.fatal(error.formatted || error);
 		}).then(done);
 	});
 };
