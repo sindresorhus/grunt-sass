@@ -36,6 +36,8 @@ module.exports = grunt => {
 					grunt.file.write(filePath, result.map);
 				}
 			}));
-		})().catch(grunt.fatal).then(done);
+		})().catch(error => {
+			grunt.fatal(error.formatted || error);
+		}).then(done);
 	});
 };
