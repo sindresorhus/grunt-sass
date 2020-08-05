@@ -41,11 +41,11 @@ grunt.initConfig({
 			implementation: sass,
 			sourceMap: true
 		},
-		dist: {
-			files: {
-				'main.css': 'main.scss'
-			}
+		
+		files: {
+			'main.css': 'main.scss'
 		}
+		
 	}
 });
 
@@ -58,7 +58,7 @@ Note that when using Dart Sass, **synchronous compilation is twice as fast as as
 
 ```js
 const Fiber = require('fibers');
-const sass = require('node-sass');
+const sass = require('sass');
 
 require('load-grunt-tasks')(grunt);
 
@@ -69,10 +69,8 @@ grunt.initConfig({
 			fiber: Fiber,
 			sourceMap: true
 		},
-		dist: {
-			files: {
-				'main.css': 'main.scss'
-			}
+		files: {
+			'main.css': 'main.scss'
 		}
 	}
 });
