@@ -1,4 +1,4 @@
-# grunt-sass [![Build Status](https://travis-ci.org/sindresorhus/grunt-sass.svg?branch=master)](https://travis-ci.org/sindresorhus/grunt-sass)
+# grunt-sass
 
 [<img src="https://github.com/sass/sass-site/blob/master/source/assets/img/logos/logo-seal.png" width="150" align="right">](https://sass-lang.com)
 
