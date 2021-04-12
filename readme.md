@@ -60,6 +60,7 @@ Note that when using Dart Sass, **synchronous compilation is twice as fast as as
 const Fiber = require('fibers');
 const sass = require('sass');
 
+// You may need to load the module `npm install --save-dev load-grunt-tasks`
 require('load-grunt-tasks')(grunt);
 
 grunt.initConfig({
@@ -77,6 +78,9 @@ grunt.initConfig({
 	}
 });
 
+// You can also use `grunt.loadNpmTasks('grunt-sass');`
+// instead of `require('load-grunt-tasks')(grunt);`
+
 grunt.registerTask('default', ['sass']);
 ```
 
@@ -88,3 +92,14 @@ Files starting with `_` are ignored to match the expected [Sass partial behaviou
 See the Node Sass [options](https://github.com/sass/node-sass#options), except for `file`, `outFile`, `success`, `error`.
 
 The default value for the `precision` option is `10`, so you don't have to change it when using Bootstrap.
+
+## Events
+`grunt-sass-error` Called when an error occurs.
+
+Example
+
+```
+grunt.event.on('grunt-sass-error', function(err){
+    console.log(err);
+});
+```

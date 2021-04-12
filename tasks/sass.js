@@ -37,7 +37,8 @@ module.exports = grunt => {
 				}
 			}));
 		})().catch(error => {
-			grunt.fatal(error.formatted || error);
+			grunt.event.emit('grunt-sass-error', error);
+			grunt.fail.fatal(error.formatted || error);
 		}).then(done);
 	});
 };
