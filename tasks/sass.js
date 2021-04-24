@@ -37,7 +37,13 @@ module.exports = grunt => {
 				}
 			}));
 		})().catch(error => {
+			
+                        if (options.onError !== undefined && typeof options.onError === 'function') {
+                        	options.onError(error);
+                        }
+			
 			grunt.fatal(error.formatted || error);
+			
 		}).then(done);
 	});
 };
