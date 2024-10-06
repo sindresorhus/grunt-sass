@@ -13,6 +13,15 @@ module.exports = grunt => {
 					'test/tmp/compile2.css': 'test/fixtures/test.scss'
 				}
 			},
+			modernCompile: {
+				options: {
+					api: 'modern'
+				},
+				files: {
+					'test/tmp/modern-compile.css': 'test/fixtures/test.scss',
+					'test/tmp/modern-compile2.css': 'test/fixtures/test.scss'
+				}
+			},
 			includePaths: {
 				options: {
 					includePaths: ['test/fixtures']
