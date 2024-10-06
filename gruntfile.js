@@ -1,5 +1,5 @@
 'use strict';
-const sass = require('node-sass');
+const sass = require('sass');
 
 module.exports = grunt => {
 	grunt.initConfig({
