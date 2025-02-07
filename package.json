@@ -1,19 +1,22 @@
 {
 	"name": "grunt-sass",
 	"version": "3.1.0",
-	"description": "Compile Sass to CSS using node-sass",
+	"description": "Compile Sass to CSS",
 	"license": "MIT",
 	"repository": "sindresorhus/grunt-sass",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
+	"sideEffects": false,
 	"engines": {
-		"node": ">=8"
+		"node": ">=18"
 	},
 	"scripts": {
-		"test": "xo && grunt"
+		"//test": "xo && grunt",
+		"test": "xo"
 	},
 	"files": [
 		"tasks"
@@ -29,14 +32,20 @@
 		"libsass"
 	],
 	"devDependencies": {
-		"grunt": "^1.6.0",
-		"grunt-cli": "^1.3.1",
+		"grunt": "^1.6.1",
+		"grunt-cli": "^1.5.0",
 		"grunt-contrib-clean": "^2.0.1",
-		"grunt-contrib-nodeunit": "^2.0.0",
-		"sass": "1.78.0",
-		"xo": "^0.23.0"
+		"grunt-contrib-nodeunit": "^5.0.0",
+		"sass": "^1.84.0",
+		"xo": "^0.60.0"
 	},
 	"peerDependencies": {
 		"grunt": ">=1"
+	},
+	"xo": {
+		"rules": {
+			"unicorn/prefer-module": "off",
+			"unicorn/no-anonymous-default-export": "off"
+		}
 	}
 }

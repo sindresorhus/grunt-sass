@@ -1,39 +1,28 @@
-/* eslint-disable prefer-object-spread, promise/prefer-await-to-then */
+/* eslint-disable promise/prefer-await-to-then */
 'use strict';
-const util = require('util');
-const path = require('path');
+const path = require('node:path');
 
 module.exports = grunt => {
 	grunt.registerMultiTask('sass', 'Compile Sass to CSS', function () {
 		const done = this.async();
 
-		const options = this.options({
-			precision: 10
-		});
+		const options = this.options();
 
 		if (!options.implementation) {
 			grunt.fatal('The implementation option must be passed to the Sass task');
 		}
+
 		grunt.verbose.writeln(`\n${options.implementation.info}\n`);
 
 		(async () => {
 			await Promise.all(this.files.map(async item => {
-				const [src] = item.src;
-				let result;
+				const [source] = item.src;
 
-				if (!src || path.basename(src)[0] === '_') {
+				if (!source || path.basename(source)[0] === '_') {
 					return;
 				}
 
-				if (options.api === 'modern') {
-					result = await options.implementation.compileAsync(src, options);
-				} else {
-					result = await util.promisify(options.implementation.render)(Object.assign({}, options, {
-						file: src,
-						outFile: item.dest
-					}));
-				}
-
+				const result = await options.implementation.compileAsync(source, options);
 				grunt.file.write(item.dest, result.css);
 
 				if (options.sourceMap) {
