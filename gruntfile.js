@@ -1,5 +1,5 @@
 'use strict';
-const sass = require('node-sass');
+const sass = require('sass');
 
 module.exports = grunt => {
 	grunt.initConfig({
@@ -11,6 +11,15 @@ module.exports = grunt => {
 				files: {
 					'test/tmp/compile.css': 'test/fixtures/test.scss',
 					'test/tmp/compile2.css': 'test/fixtures/test.scss'
+				}
+			},
+			modernCompile: {
+				options: {
+					api: 'modern'
+				},
+				files: {
+					'test/tmp/modern-compile.css': 'test/fixtures/test.scss',
+					'test/tmp/modern-compile2.css': 'test/fixtures/test.scss'
 				}
 			},
 			includePaths: {

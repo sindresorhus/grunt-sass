@@ -19,15 +19,20 @@ module.exports = grunt => {
 		(async () => {
 			await Promise.all(this.files.map(async item => {
 				const [src] = item.src;
+				let result;
 
 				if (!src || path.basename(src)[0] === '_') {
 					return;
 				}
 
-				const result = await util.promisify(options.implementation.render)(Object.assign({}, options, {
-					file: src,
-					outFile: item.dest
-				}));
+				if (options.api === 'modern') {
+					result = await options.implementation.compileAsync(src, options);
+				} else {
+					result = await util.promisify(options.implementation.render)(Object.assign({}, options, {
+						file: src,
+						outFile: item.dest
+					}));
+				}
 
 				grunt.file.write(item.dest, result.css);
 

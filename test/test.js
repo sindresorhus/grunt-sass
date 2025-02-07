@@ -13,6 +13,17 @@ exports.sass = {
 
 		test.done();
 	},
+	modernCompile(test) {
+		test.expect(2);
+
+		const actual = grunt.file.read('test/tmp/modern-compile.css');
+		const actual2 = grunt.file.read('test/tmp/modern-compile2.css');
+		const expected = grunt.file.read('test/expected/compile.css');
+		test.equal(actual, expected, 'should compile SCSS to CSS');
+		test.equal(actual2, expected, 'should compile SCSS to CSS');
+
+		test.done();
+	},
 	includePaths(test) {
 		test.expect(1);
 

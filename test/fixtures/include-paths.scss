@@ -1,3 +1,4 @@
+@use "sass:math";
 @import 'imported';
 
 $blue: #3bbfce;
@@ -10,7 +11,7 @@ $margin: 16px;
 }
 
 .border {
-  padding: $margin / 2;
-  margin: $margin / 2;
+  padding: math.div($margin, 2);
+  margin: math.div($margin, 2);
   border-color: $blue;
 }
