@@ -25,7 +25,8 @@ module.exports = grunt => {
 				const result = await options.implementation.compileAsync(source, options);
 				grunt.file.write(item.dest, result.css);
 
-				if (options.sourceMap) {
+				if (options.sourceMap) {					
+					grunt.file.write(item.dest, `${result.css}\n/*# sourceMappingURL=${options.sourceMap === true ? `${path.basename(item.dest)}.map` : options.sourceMap} */`);
 					const filePath = options.sourceMap === true ? `${item.dest}.map` : options.sourceMap;
 					grunt.file.write(filePath, JSON.stringify(result.sourceMap));
 				}
