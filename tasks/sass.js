@@ -27,7 +27,7 @@ module.exports = grunt => {
 
 				if (options.sourceMap) {
 					const filePath = options.sourceMap === true ? `${item.dest}.map` : options.sourceMap;
-					grunt.file.write(filePath, result.map);
+					grunt.file.write(filePath, JSON.stringify(result.sourceMap));
 				}
 			}));
 		})().catch(error => {
