@@ -23,11 +23,14 @@ module.exports = grunt => {
 				}
 
 				const result = await options.implementation.compileAsync(source, options);
-				grunt.file.write(item.dest, result.css);
 
 				if (options.sourceMap) {
-					const filePath = options.sourceMap === true ? `${item.dest}.map` : options.sourceMap;
-					grunt.file.write(filePath, result.map);
+					const mapFileName = options.sourceMap === true ? `${path.basename(item.dest)}.map` : options.sourceMap;
+					const mapFilePath = options.sourceMap === true ? `${item.dest}.map` : options.sourceMap;
+					grunt.file.write(item.dest, `${result.css}\n/*# sourceMappingURL=${mapFileName} */`);
+					grunt.file.write(mapFilePath, JSON.stringify(result.sourceMap));
+				} else {
+					grunt.file.write(item.dest, result.css);
 				}
 			}));
 		})().catch(error => {
