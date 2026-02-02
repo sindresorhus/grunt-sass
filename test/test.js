@@ -14,7 +14,7 @@ exports.sass = {
 		test.done();
 	},
 	sourceMap(test) {
-		test.expect(4);
+		test.expect(5);
 
 		const css = grunt.file.read('test/tmp/source-map.css');
 		test.ok(/\/\*# sourceMappingURL=source-map\.css\.map \*\//.test(css), 'should include sourceMappingURL comment');
@@ -25,11 +25,12 @@ exports.sass = {
 		const parsedMap = JSON.parse(map);
 		test.ok(parsedMap.sources, 'should have sources property');
 		test.ok(parsedMap.mappings, 'should have mappings property');
+		test.ok(parsedMap.sources.every(source => !source.startsWith('file:')), 'should use relative paths in sources');
 
 		test.done();
 	},
 	sourceMapCustomPath(test) {
-		test.expect(3);
+		test.expect(4);
 
 		const css = grunt.file.read('test/tmp/source-map-custom.css');
 		test.ok(/\/\*# sourceMappingURL=test\/tmp\/custom\.map \*\//.test(css), 'should include custom sourceMappingURL');
@@ -38,6 +39,9 @@ exports.sass = {
 
 		const map = grunt.file.read('test/tmp/custom.map');
 		test.ok(/test\.scss/.test(map), 'should include the main file in custom sourceMap');
+
+		const parsedMap = JSON.parse(map);
+		test.ok(parsedMap.sources.every(source => !source.startsWith('file:')), 'should use relative paths in sources');
 
 		test.done();
 	},
